@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'f)^u#r5n%n46sal6k%na8y$k!dd))=
 #DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'dnl1.pp.ua', 'dnl1.if.ua', 'mysterious-sands-18919.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'dnl1.herokuapp.com']
 
 
 # Application definition
