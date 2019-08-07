@@ -1,0 +1,80 @@
+{% extends 'dnl1/wrapper.html' %}
+
+{% block title %}
+Адміністрація
+{% endblock %}
+
+{% block cssfiles %}
+{% load static  %}
+<link rel="stylesheet" href="{% static '/methodical-work/css/teachers.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% include "dnl1/includes/page-title.html" with title='Адміністрація' %}
+
+
+
+<div class="container">
+    <div class="row">
+        {% if dr %}
+            <div class="col-md-3 col-sm-4 col-6 center">
+                    {% if dr.photo %}
+                    <img src=" {{ dr.photo.url }} " class="teacher-photo">
+                    {% else %}
+                    <img src=" {% static 'methodical-work/images/user.png' %}" class="teacher-photo">
+                    {% endif %}
+                    <div class="name ">{{dr.first_name}} {{dr.second_name}}</div>
+                    <div class="teacher-info mb-2">{{dr.get_special_position_display}}</div>
+                    <div class="teacher-info">
+                        <p class="m-0">Предмети :</p>
+                        <ul class="list-unstyled">
+                            {% for les in dr.lesson.all %}
+                                <li class="font-italic">{{ les }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="teacher-info">{{ dr.category }}</div>
+                    <div class="teacher-info">
+                            {% if dr.rank %}
+                            {{ dr.rank }}
+                            {% endif %}
+                    </div>
+            </div>
+        {% endif %}
+
+        {% for t in dp %}
+        <div class="col-md-3 col-sm-4 col-6 center">
+                {% if t.photo %}
+                <img src=" {{ t.photo.url }} " class="teacher-photo">
+                {% else %}
+                <img src=" {% static 'methodical-work/images/user.png' %}" class="teacher-photo">
+                {% endif %}
+                <div class="name ">{{t.first_name}} {{t.second_name}}</div>
+                <div class="teacher-info mb-2">{{t.get_special_position_display}}</div>
+                <div class="teacher-info">
+                    <p class="m-0">Предмети :</p>
+                    <ul class="list-unstyled">
+                        {% for les in t.lesson.all %}
+                            <li class="font-italic">{{ les }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="teacher-info">{{ t.category }}</div>
+                <div class="teacher-info">
+                        {% if t.rank %}
+                        {{ t.rank }}
+                        {% endif %}
+                </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+{% block jsfiles %}
+<script src="{% static '/methodical-work/js/treeview.js' %}"></script>
+{% endblock %}

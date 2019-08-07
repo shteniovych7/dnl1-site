@@ -1,0 +1,62 @@
+{% extends 'dnl1/wrapper.html' %}
+
+{% block title %}
+{{article.title}}
+{% endblock %}
+
+{% block cssfiles %}
+{% load static  %}
+<link rel="stylesheet" href="{% static '/lib/fancybox/fancybox.min.css' %}">
+{% endblock %}
+
+{% block content %}
+<style>
+
+    .img-block {
+        float: right;
+        margin: 4px 0 7px 50px;
+        width: 50%;
+    }
+    p{
+        line-height: 1.7;
+    }
+</style>
+
+{% include "dnl1/includes/page-title.html" with title=article.title %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+                    <span class="img-block">
+                        <a data-fancybox="gallery"  href="{{article.image.url}}" ><img src="{{article.image.url}}" width="100%"></a>
+                        {% if article.album %}
+                            <a href="/photo-gallery/{{article.album.id}}">Переглянути більше фото</a>
+                        {% endif %}
+                    </span>
+                        
+                <p class="font-italic">{{article.date|date:"d-m-Y"}}</p>
+                {{article.post|safe|linebreaks}}
+                {% if article.album %}
+                    <a href="/photo-gallery/{{article.album.id}}">Переглянути більше фото</a>
+                {% endif %}
+
+        </div>
+       
+        
+
+        
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}
+
+
+{% block jsfiles %}
+
+<script src="{% static '/lib/fancybox/fancybox.min.js' %}"></script>
+{% endblock %}

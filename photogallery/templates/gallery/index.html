@@ -1,0 +1,88 @@
+{% extends 'dnl1/wrapper.html' %}
+
+{% block title %}
+Фотогалерея
+{% endblock %}
+
+{% block cssfiles %}
+{% load static  %}
+{% endblock %}
+
+
+{% block content %}
+<style>
+    .album-date{
+        font-size: 13px;
+    }
+    .album-title{  
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+    .center a{
+        color: inherit;
+    }
+    .center a:hover{
+        text-decoration: none;
+    }
+</style>
+<div class="heading">
+    <h2>Фотогалерея</h2>
+</div>
+    
+<div class="container">
+    <div class="row">
+        {% for topic_and_image in topics_and_images %}
+
+
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="center">
+                <a href="/photo-gallery/{{ topic_and_image.0.id }}"><img src="{{ topic_and_image.1.image_thumbnail.url }}" width="100%"></a>
+                <div class="album-date">{{topic_and_image.0.date|date:"d-m-Y"}}</div>
+                <a href="/photo-gallery/{{ topic_and_image.0.id }}"><div class="album-title">{{ topic_and_image.0 }}</div></a>
+            </div>      
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+<nav>
+    <ul class="pagination justify-content-center">
+        {% if topics.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ topics.previous_page_number }}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </a>
+        </li>
+        {% endif %}
+        
+        {% for num in topics.paginator.page_range %}
+        
+          {% if topics.number == num %}
+          <li class="page-item active">
+            <a class="page-link" href="#">{{num}} <span class="sr-only">(current)</span></a>
+            </li>
+          {% elif num > topics.number|add:'-3' and num < topics.number|add:'3' %}
+          <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+          {% endif %}
+      
+        {% endfor %}
+      
+        {% if topics.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ topics.next_page_number }}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+            </a>
+        </li>
+        {% endif %}  
+    </ul>
+</nav>
+{% endblock %}
+
+{% block jsfiles %}
+
+{% endblock %}

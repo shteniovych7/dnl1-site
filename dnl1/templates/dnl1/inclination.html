@@ -1,0 +1,36 @@
+{% extends 'dnl1/wrapper.html' %}
+
+{% block title %}
+Інклюзія
+{% endblock %}
+
+{% block cssfiles %}
+{% load static  %}
+{% endblock %}
+
+{% block content %}
+
+{% include "dnl1/includes/small-page-title.html" with title='Умови доступності закладу освіти для навчання осіб з особливими освітніми потребами' %}
+
+<div class="container">
+    <h3>
+        <a href="https://zakon.rada.gov.ua/laws/show/875-12" class="font-weight-bold text-danger">
+            Щодо виконання вимог Закону України «Про основи соціальної захищеності інвалідів в Україні"
+        </a>
+    </h3>
+    <div class="row">
+        <div class="col-md-8 col-12">
+            <img class="w-100" src="{% static 'dnl1/images/ramp.jpg' %}" alt="Ramp" />
+        </div>
+        <div class="col-md-4 col-12">
+            Пандус в Долинському науковому ліцеї №1
+        </div>
+    </div>
+</div>
+
+    
+{% endblock %}
+
+
+{% block jsfiles %}
+{% endblock %}

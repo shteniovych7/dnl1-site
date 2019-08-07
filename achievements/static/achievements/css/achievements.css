@@ -1,0 +1,82 @@
+.col-auto {
+  padding-right: 0px;
+  padding-left: 8px;
+}
+.title {
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-weight: 670;
+}
+#wells,
+#subjects {
+  margin-top: 35px;
+}
+#golders,
+#silvers,
+#wells {
+  margin-top: 10px;
+  font-size: 18px;
+}
+.gold-btn {
+  background-color: #f5ae43;
+}
+.silver-btn {
+  background-color: #c3c5c4;
+}
+.nav-pills .nav-link {
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-right: 10px;
+  border: 2px solid transparent;
+}
+.nav-pills .gold-btn.active {
+  border: 2px solid #007bff;
+  background-color: #f5ae43;
+}
+.nav-pills .silver-btn.active {
+  border: 2px solid #007bff;
+  background-color: #c3c5c4;
+}
+.blue-btn {
+  background-color: #4c9be0;
+}
+.gold-btn,
+.silver-btn,
+.blue-btn {
+  color: white;
+  margin-top: 10px;
+}
+.default-color {
+  color: #212529;
+}
+.table td,
+.table th {
+  vertical-align: middle;
+  text-align: center;
+}
+.tabs li {
+  margin: 0 auto;
+}
+li .active {
+  border-bottom: 2px solid #5b76a3;
+}
+.nav-link {
+  padding: .3rem .3rem;
+}
+a {
+  transition: none;
+}
+a:hover {
+  transition: none;
+  color: #212529;
+}
+a:focus {
+  transition: none;
+}
+.tab-pane {
+  padding-top: 20px;
+}
+.tab-pane p {
+  margin-bottom: .7rem;
+}

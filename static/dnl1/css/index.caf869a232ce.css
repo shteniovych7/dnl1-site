@@ -1,0 +1,297 @@
+#welcome-slider .overlay {
+  position: relative;
+}
+#welcome-slider .overlay::after {
+  content: '\A';
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(116, 125, 140, 0.4);
+}
+#welcome-slider .owl-prev,
+#welcome-slider .owl-next {
+  position: absolute;
+  top: 40%;
+  height: 50px;
+  width: 50px;
+}
+#welcome-slider .owl-prev i,
+#welcome-slider .owl-next i {
+  color: white;
+  opacity: 0.7;
+  font-size: 70px;
+  font-weight: bold;
+}
+#welcome-slider .owl-prev:focus,
+#welcome-slider .owl-next:focus {
+  outline: none;
+}
+#welcome-slider .owl-prev:hover,
+#welcome-slider .owl-next:hover {
+  background: none;
+}
+#welcome-slider .owl-prev:hover i,
+#welcome-slider .owl-next:hover i {
+  opacity: 1;
+}
+#welcome-slider .owl-prev {
+  left: 3%;
+}
+#welcome-slider .owl-next {
+  right: 3%;
+}
+#welcome-slider .header-text {
+  position: absolute;
+  top: 25%;
+  left: 1.8%;
+  width: 100%;
+  color: white;
+}
+#welcome-slider .header-text h1 {
+  font-size: 50px;
+  margin-bottom: 30px;
+}
+#welcome-slider .header-text h3 {
+  font-size: 20px;
+}
+#welcome-slider #about-us-button {
+  color: white;
+  font-size: 20px;
+  background-color: #e36252;
+  padding: 5px 30px;
+  margin-top: 30px;
+}
+#welcome-slider #about-us-button:hover {
+  background-color: #bf4839;
+}
+#welcome-slider .owl-dots {
+  position: absolute;
+  right: 0;
+  bottom: 30px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  padding-left: 30px;
+}
+#welcome-slider .owl-dots .owl-dot {
+  position: relative;
+  width: 30px;
+  height: 3px;
+  margin-right: 3px;
+  margin-left: 3px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+#welcome-slider .owl-dots .owl-dot.active {
+  background-color: #fff;
+}
+#welcome-slider .owl-dots .owl-dot:focus {
+  outline: none;
+}
+#important-links {
+  margin-top: 30px;
+}
+#important-links a {
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+}
+#important-links .important-links_title {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+#important-links .implnk-icon {
+  width: 200px;
+}
+#news-carousel {
+  margin-bottom: 20px;
+  text-align: center;
+}
+#news-carousel a {
+  color: inherit;
+}
+#news-carousel a:hover {
+  text-decoration: none;
+}
+#news-carousel .news-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+#news-carousel .news-details {
+  font-size: 18px;
+}
+#news-carousel .date {
+  margin: 5px 0 3px 0;
+}
+#news-carousel .owl-prev,
+#news-carousel .owl-next {
+  position: absolute;
+  top: 40%;
+  height: 50px;
+  width: 50px;
+}
+#news-carousel .owl-prev i,
+#news-carousel .owl-next i {
+  color: #272424;
+  opacity: 0.7;
+  font-size: 70px;
+  font-weight: bold;
+}
+#news-carousel .owl-prev:focus,
+#news-carousel .owl-next:focus {
+  outline: none;
+}
+#news-carousel .owl-prev:hover,
+#news-carousel .owl-next:hover {
+  background: none;
+}
+#news-carousel .owl-prev:hover i,
+#news-carousel .owl-next:hover i {
+  opacity: 1;
+}
+#news-carousel .owl-prev {
+  left: -9%;
+}
+#news-carousel .owl-next {
+  right: -9%;
+}
+#news-carousel .owl-dot {
+  border-radius: 10px;
+  margin: 1px 3px;
+  height: 10px;
+  width: 10px;
+  max-width: 10px;
+  top: 55px;
+  border: 1px solid #e36252;
+}
+#news-carousel .owl-dot.active {
+  background-color: #e36252;
+}
+.all-news-link {
+  font-size: 17px;
+  color: #e36252;
+  text-decoration: underline;
+}
+.all-news-link:hover {
+  color: #e36252;
+  text-decoration: underline;
+}
+@media screen and (max-width: 1305px) {
+  #news-carousel .owl-prev {
+    left: -5%;
+  }
+  #news-carousel .owl-next {
+    right: -5%;
+  }
+  #news-carousel .owl-prev i,
+  #news-carousel .owl-next i {
+    font-size: 50px;
+  }
+}
+@media screen and (max-width: 1055px) {
+  #welcome-slider .header-text {
+    top: 20%;
+  }
+  #welcome-slider .header-text h1 {
+    font-size: 35px;
+  }
+  #welcome-slider .header-text h3 {
+    font-size: 20px;
+  }
+  #welcome-slider .carousel-control-next-icon,
+  #welcome-slider .owl-prev {
+    height: 20px;
+    width: 20px;
+  }
+  #news-carousel .owl-prev,
+  #news-carousel .owl-next {
+    display: none;
+  }
+}
+@media screen and (max-width: 992px) {
+  #welcome-slider .header-text h1 {
+    font-size: 35px;
+    margin-bottom: 15px;
+  }
+  #welcome-slider .header-text h3 {
+    display: none;
+  }
+  #important-links .implnk-icon {
+    width: 125px;
+  }
+  #important-links .important-links_title {
+    font-size: 19px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #welcome-slider .header-text {
+    top: 28%;
+  }
+  #welcome-slider .owl-prev i,
+  #welcome-slider .owl-next i {
+    font-size: 50px;
+  }
+  #welcome-slider h3 {
+    font-size: 20px;
+  }
+  #welcome-slider h5 {
+    font-size: 16px;
+  }
+  #welcome-slider #about-us-button {
+    margin-top: 0px;
+  }
+  #news-carousel .carousel-control-next,
+  #news-carousel .carousel-control-prev {
+    display: none;
+  }
+}
+@media screen and (max-width: 600px) {
+  #welcome-slider .header-text {
+    top: 20%;
+  }
+  #welcome-slider .header-text h1 {
+    margin-top: 20px;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  #welcome-slider .owl-prev i,
+  #welcome-slider .owl-next i {
+    font-size: 30px;
+  }
+  #welcome-slider #about-us-button {
+    color: white;
+    font-size: 15px;
+    background-color: #e36252;
+    padding: 5px 30px;
+    margin-top: 5px;
+  }
+  #welcome-slider #about-us-button:hover {
+    background-color: #bf4839;
+  }
+  #important-links .important-links_title {
+    font-size: 16px;
+  }
+  #important-links img {
+    width: 100px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #welcome-slider .header-text {
+    top: 30%;
+  }
+  #welcome-slider .header-text h1 {
+    display: none;
+  }
+  #welcome-slider #about-us-button {
+    color: white;
+    font-size: 15px;
+    background-color: #e36252;
+    padding: 5px 30px;
+    margin-top: 5px;
+  }
+  #welcome-slider #about-us-button:hover {
+    background-color: #bf4839;
+  }
+}

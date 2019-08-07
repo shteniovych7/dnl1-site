@@ -1,0 +1,54 @@
+{% extends 'dnl1/wrapper.html' %}
+
+{% block title %}
+{{ mo_name }}
+{% endblock %}
+
+{% block cssfiles %}
+{% load static  %}
+<link rel="stylesheet" href="{% static '/methodical-work/css/teachers.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% include "dnl1/includes/small-page-title.html" with title=mo_name %}
+
+
+
+<div class="container">
+    <div class="row">
+        {% for teacher in teachers %}
+            
+            <div class="col-md-3 col-sm-4 col-6 center">
+                {% if teacher.photo %}
+                <img src=" {{ teacher.photo.url }} " class="teacher-photo">
+                {% else %}
+                <img src=" {% static 'methodical-work/images/user.png' %}" class="teacher-photo">
+                {% endif %}
+                <div class="name mb-2">{{teacher.first_name}} {{teacher.second_name}}</div>
+                <div class="teacher-info">
+                    <p class="m-0">Предмети :</p>
+                    <ul class="list-unstyled">
+                        {% for les in teacher.lesson.all %}
+                            <li class="font-italic">{{ les }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="teacher-info">{{ teacher.category }}</div>
+                <div class="teacher-info">
+                    {% if teacher.rank %}
+                    {{ teacher.rank }}
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+{% block jsfiles %}
+<script src="{% static '/methodical-work/js/treeview.js' %}"></script>
+{% endblock %}

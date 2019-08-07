@@ -1,0 +1,38 @@
+{% extends 'dnl1/wrapper.html' %}
+
+{% block title %}
+{{topic.name}}
+{% endblock %}
+
+{% block cssfiles %}
+{% load static  %}
+<link rel="stylesheet" href="{% static '/lib/fancybox/fancybox.min.css' %}">
+{% endblock %}
+
+
+{% block content %}
+{% include "dnl1/includes/page-title.html" with title=topic.name %}
+
+<div class="container topicContent">
+         <div class="container">
+                <div class="row">
+                  {% for image in images %}
+                    <div class="col-md-3 col-6" >
+                        {% if image.description %}
+                        <a data-fancybox="gallery" href="/media/photogallery/{% static image.get_source %}" data-caption=" {{image.description}}">
+                        {% else %}
+                        <a data-fancybox="gallery" href="/media/photogallery/{% static image.get_source %}" >
+                        {% endif %}
+                            <img src="{{image.image_thumbnail.url}}" width=100% class="mb-4">
+                        </a>                    
+                    </div>
+                  {% endfor %}
+              </div>
+         </div>
+</div>
+
+{% endblock %}
+
+{% block jsfiles %}
+<script src="{% static '/lib/fancybox/fancybox.min.js' %}"></script>
+{% endblock %}

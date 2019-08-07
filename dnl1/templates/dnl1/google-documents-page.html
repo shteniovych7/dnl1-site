@@ -1,0 +1,61 @@
+{% extends 'dnl1/wrapper.html' %}
+
+{% block title %}
+{{page_name}}
+{% endblock %}
+
+{% block cssfiles %}
+{% load static  %}
+{% endblock %}
+
+{% block content %}
+<style>
+#document-iframe {
+  width: 40%;
+  height: 640px;
+}
+@media screen and (max-width: 900px) {
+  #document-iframe {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 640px) {
+  #document-iframe {
+    height: 500px;
+  }
+}
+@media screen and (max-width: 400px) {
+  #document-iframe {
+    height: 350px;
+  }
+}
+@media screen and (max-width: 900px) {
+  #document-iframe {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 640px) {
+  #document-iframe {
+    height: 500px;
+  }
+}
+@media screen and (max-width: 400px) {
+  #document-iframe {
+    height: 350px;
+  }
+}
+
+</style>
+
+{% include "dnl1/includes/page-title.html" with title=page_name %}
+
+{% for link in links %}
+<p class="text-center font-weight-bold">{{link.0}}</p>
+<div class="center"><iframe id="document-iframe" src="{{link.1}}" height="640"></iframe></div>
+{% endfor %}
+{% endblock %}
+
+
+{% block jsfiles %}
+
+{% endblock %}

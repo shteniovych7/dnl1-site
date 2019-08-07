@@ -1,0 +1,31 @@
+{% extends 'dnl1/wrapper.html' %}
+
+{% block title %}
+Фінансова звітність
+{% endblock %}
+
+{% block cssfiles %}
+{% load static  %}
+{% endblock %}
+
+{% block content %}
+
+{% include "dnl1/includes/page-title.html" with title='Фінансова звітність' %}
+
+<div class="container">
+    <p class="text-center font-weight-bold">Використання коштів станом на 01 листопада 2017 року</p>
+    <img src="{% static 'dnl1/images/finances/1.jpg' %}">
+    <p class="text-center font-weight-bold">План асигнувань із загального фонду бюджету на 2018 рік</p>
+    <img src="{% static 'dnl1/images/finances/2.jpg' %}">
+    <p class="text-center font-weight-bold">Кошторис на 2018 рік</p>
+    <img src="{% static 'dnl1/images/finances/3.jpg' %}">
+    <p class="text-center font-weight-bold">Протягом 2018 року на капітальні видатки та придбання обладнання за рахунок коштів державного та районного бюджетів було використано 1265798грн.</p>
+    <img src="{% static 'dnl1/images/finances/4.jpg' %}">
+    <img src="{% static 'dnl1/images/finances/5.jpg' %}">
+    <img src="{% static 'dnl1/images/finances/6.jpg' %}">
+</div>
+{% endblock %}
+
+
+{% block jsfiles %}
+{% endblock %}
