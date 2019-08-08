@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'imagekit',
     'ckeditor',
     'storages',
+    'boto3',
 ]
 from easy_thumbnails.conf import Settings as thumbnail_settings
 THUMBNAIL_PROCESSORS = (
@@ -165,3 +166,13 @@ AWS_QUERYSTRING_AUTH = False
 AWS_S3_CUSTOM_DOMAIN = os.environ.get("AWS_S3_CUSTOM_DOMAIN", "")
 MEDIA_ROOT = os.environ.get("MEDIA_URL", "")
 MEDIA_URL = '/media/'
+'''
+AWS_ACCESS_KEY_ID = 'AKIARFB5JRAOEB2ACYCH'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'dnl1'
+AWS_QUERYSTRING_AUTH = False 
+AWS_S3_CUSTOM_DOMAIN = 'dnl1.s3.amazonaws.com' 
+
+MEDIA_ROOT = os.environ.get("MEDIA_URL", "")
+MEDIA_URL = '/media/'
+'''
