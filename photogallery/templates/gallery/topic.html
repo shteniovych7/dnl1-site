@@ -19,9 +19,9 @@
                   {% for image in images %}
                     <div class="col-md-3 col-6" >
                         {% if image.description %}
-                        <a data-fancybox="gallery" href="/media/photogallery/{% static image.get_source %}" data-caption=" {{image.description}}">
+                        <a data-fancybox="gallery" href="{{image.image.url}}" data-caption=" {{image.description}}">
                         {% else %}
-                        <a data-fancybox="gallery" href="/media/photogallery/{% static image.get_source %}" >
+                        <a data-fancybox="gallery" href="{{image.image.url}}" >
                         {% endif %}
                             <img src="{{image.image_thumbnail.url}}" width=100% class="mb-4">
                         </a>                    
