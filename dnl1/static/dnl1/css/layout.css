@@ -5,6 +5,60 @@
   margin-left: auto;
   margin-right: auto;
 }
+.btco-hover-menu a,
+.navbar li a {
+  padding-bottom: 7px;
+}
+/*Drop-down menu work on hover*/
+@media only screen and (max-width: 991px) {
+  .btco-hover-menu .show > .dropdown-toggle::after {
+    transform: rotate(-90deg);
+  }
+}
+@media only screen and (min-width: 991px) {
+  .btco-hover-menu .collapse ul li {
+    position: relative;
+  }
+  .btco-hover-menu .collapse ul li:hover > ul {
+    display: block;
+  }
+  .btco-hover-menu .collapse ul ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 250px;
+    display: none;
+  }
+  /*******/
+  .btco-hover-menu .collapse ul ul li {
+    position: relative;
+  }
+  .btco-hover-menu .collapse ul ul li:hover > ul {
+    display: block;
+  }
+  .btco-hover-menu .collapse ul ul ul {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 250px;
+    display: none;
+  }
+  /*******/
+  .btco-hover-menu .collapse ul ul ul li {
+    position: relative;
+  }
+  .btco-hover-menu .collapse ul ul ul li:hover ul {
+    display: block;
+  }
+  .btco-hover-menu .collapse ul ul ul ul {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    min-width: 250px;
+    display: none;
+    z-index: 1;
+  }
+}
 .heading {
   display: table;
   margin: 0 auto;
@@ -28,7 +82,10 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 .navbar .nav-item {
-  padding-left: 50px;
+  padding-right: 50px;
+}
+.navbar .nav-item:last-child {
+  padding-right: 0;
 }
 .navbar .dropdown-item {
   height: 40px;
@@ -80,9 +137,6 @@ footer .footer-nav_menu li {
   padding-top: 15px;
 }
 @media screen and (min-width: 992px) {
-  .navbar .dropdown-menu {
-    margin-top: 10.5px;
-  }
   .navbar .dropdown:hover > .dropdown-menu {
     display: block;
   }

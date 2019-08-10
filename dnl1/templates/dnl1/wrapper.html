@@ -9,11 +9,16 @@
     <title>{% block title %}{% endblock %} - ДНЛ1</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static '/dnl1/css/layout.css' %}">
+    
+    {% block metatags %}
+    {% endblock %}
+
     {% block cssfiles %}
     {% endblock %}
 </head>
 <body>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light" >
+ 
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light btco-hover-menu" >
         <div class="container">
             <a class="navbar-brand" href="/"><img src="{% static 'dnl1/images/logo.png' %}" height=35></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,28 +27,38 @@
             <div class="collapse navbar-collapse" id="navbar1">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Інформація</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                        <a class="dropdown-item" href="/statut">Статут наукового ліцею</a>
-                        <a class="dropdown-item" href="/license">Ліцензія</a>
-                        <a class="dropdown-item" href="/vacancies">Вакансії</a>
-                        <a class="dropdown-item" href="/educational_programs">Освітні програми</a>
-                        <a class="dropdown-item" href="/inclination">Інклюзія</a>
-                        <a class="dropdown-item" href="/entry-rules">Правила вступу</a>
-                    </div>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Інформація</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                        <li><a class="dropdown-item" href="/statut">Статут наукового ліцею</a></li>
+                        <li><a class="dropdown-item" href="/license">Ліцензія</a></li>
+                        <li><a class="dropdown-item" href="/collective">Кадровий склад</a></li>
+                        <li><a class="dropdown-item" href="/vacancies">Вакансії</a></li>
+                        <li><a class="dropdown-item" href="/educational_programs">Освітні програми</a></li>
+                        <li><a class="dropdown-item" href="/inclination">Інклюзія</a></li>
+                        <li><a class="dropdown-item" href="/entry-rules">Правила вступу</a></li>
+                    </ul>
                     </li>
                     <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Управління</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                        <a class="dropdown-item" href="/methodical-work/administration">Адміністрація закладу</a>
-                        <a class="dropdown-item" href="/work-plan">Річний план роботи</a>
-                        <a class="dropdown-item" href="/pedagogical-meetings">Педагогічні ради</a>
-                        <a class="dropdown-item" href="/material-base">Матеріальна база</a>
-                        <a class="dropdown-item" href="/orders">Накази</a>
-                        <a class="dropdown-item" href="/activity-report">Звіт про діяльність закладу</a>
-                        <a class="dropdown-item" href="/financial-statements">Фінансова звітність</a>
-                    </div>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Управління</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="/methodical-work/administration">Адміністрація закладу</a></li>
+                        <li><a class="dropdown-item" href="/work-plan">Річний план роботи</a></li>
+                        <li><a class="dropdown-item" href="/pedagogical-meetings">Педагогічні ради</a></li>
+                        <li><a class="dropdown-item" href="/material-base">Матеріальна база</a></li>
+                        <li><a class="dropdown-item" href="/orders">Накази</a></li>
+                        <li><a class="dropdown-item" href="/activity-report">Звіт про діяльність закладу</a></li>
+                        <li><a class="dropdown-item" href="/financial-statements">Фінансова звітність</a></li>
+                        <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Служби</a>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#">Медична служба</a></li>
+                              <li><a class="dropdown-item" href="/social-service">Соціальна служба</a></li>
+                              <li><a class="dropdown-item" href="#">Психологічна служба</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
                     </li>
+
                     <li class="nav-item">
                     <a class="nav-link" href="/news">Новини</a>
                     </li>
@@ -70,6 +85,7 @@
                     <ul class="footer-nav_menu">
                         <li id="title">Детальніше про ліцей</li>
                         <li><a href="/about-us">Долинський науковий ліцей №1</a></li>
+                        <li><a href="/methodical-work/administration">Адміністрація закладу</a></li>
                         <li><a href="/contacts">Контакти</a></li>
                     </ul>
                 </div>
@@ -78,6 +94,7 @@
                         <li id="title">Посилання</li>
                         <li><a href="/news">Новини</a></li>
                         <li><a href="/photo-gallery">Фотогалерея</a></li>
+                        <li><a href="/admin">Адмін-панель</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
@@ -102,6 +119,7 @@
                     <a target="_blank" href="https://www.facebook.com/groups/1724650547661263/"><img class="icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAACwElEQVRIS7VWPUwTYRh+3u8KivgzEFCJCVqMQyFOODgwKIOJSEtU8CpEE4OaOCgFIQg6GDEKwVoGE01cjGKv+BMtxkEJi4POKhpjDOJvRMCYCNba+15zlVaB9q7FeMMN9z4/7999dwSTq7JJK2QdKhgbWMoiKUTObziNKuBnEjwARfH3dVUPJZOhRIFyT4/dBqWTIbcCIiHmD08yIK4L5uZbPvfrmXqzyK4GbZeuy/NCiCyz6mbH9EmQbX/Qu+PK37FpBi6P1sLAqfSEp6OZuanP5+6KPY0bGJkz49K/iMe5jNqgT+2JTsu4GT0nSU+t2rIoOxPFhXmYl6EgFNbx6Mm7xPlITERsetHdMzXDUQOnJ3AN4O1m2a9YuhgdB8uwMCszChv7+h17jgeTUpgR6POpKhmrKCPypdW2HKgqwab1hVHBkfEJjHyZRNu5AZOcJAsmO7katDZmtFv1/mhdKdY58hH6EYHaegPMVoxo/4+Qy6P1M1BmBi9enYfd5WuxpiAHoXAEJy4+gK5LPB8aNXdhuk/OQ1c/QohlZsjA6W2Yn2mbBvk0PoF97XfMDaR8T1s8WlgAGekavBgeQ3N3v6mBlDKckoGhcqyuFCWOfEyGfsLdetN6AACmDAIfBHi5FWMuBjBalMqQ51oBAfeowuNvJdDJ/1EBE7dQxeHeVaRHXlm9aOm2SEpIadPtU0eF1gugyqyKdA1A7A963TujBpX1/pWS5CCgLEhm4rDnImdJFiK6xMPHSQ65KbKE/KYQOW573W/jx7WzIVAL5stWs0gx7g6eVbX4cR0jOT1aE4DOFEUSwwiNQa/qjQVnfTKd9VoNGBcgkJ2OkdEWAbE3lnlSAyOwubGnQNGVDiJZbbVdxrYIhQOsKy193dVvZiZl+sdgDJ+JVGbaCNYdEsg1BATwmYQYlMQDOknN+HIlq/YXcCcscVsrCO8AAAAASUVORK5CYII=" /></a>
                     <a target="_blank" href="https://www.instagram.com/_.dnl1._"><img class="icon" src="data:image/png;base64,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" /></a>
                     <a target="_blank" href="https://www.youtube.com/channel/UCigQW6Rz2vH62G3yTZ-OEkw"><img class="icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABy0lEQVRIS72Vz04TURTGv3N6aeuf1IUxGGPCgoWJk9Iimj4FvgZGEzc+A6zcFHwM06KPAVJZ2G4aUowLjUkDlcZCnfmOuYNsjHbq2GG295zvd+537uQTZPxJxvq4HEB3efmWI18Y8FDNblKkpMBVkEUCeQXmqOoU5wMRMCVDAj8UGBMYQXWkZt8o0s8Bu7lC4eXdnZ2+dGu1kjs7a4nZ4iztsijqXjN7IB+Xlp6bSH2W4hdaZvZUepXKWwFWswAAaMhBudzOqd6fBMgHAcbtdpoZ3sthpfIFwPyk7oVWC8PtbRzV6+BgMDVIgE8ecAqgMBGwvx8fe/HjrS2cNBoAmQwiBx5gSZULvwAXdd6u/sbGNLaNUwHOr8NE20iG/wdoNnG0ufnXvaQGxBatr2Pc6SS5G1s0AlCcdsl+4mGz+U9L/gzgduIzTbDjT/3xM+2Vyx9ENcjiR4uAlvSq1Tdi9jjJzFTnIq/lsFp9BrNXqQQSmkRkTb4GwfXvzr0DcG+WkIjsXMnnH8UBcrCycsOF4RMja1C9A7MSfOCIFEEWqDoXhw7gfL2SEYHQhw1UT0H6wBnC7AQifQF2Q+fqi3t7g8uJzFla87tW5jf4CRrC6Fq1OyMYAAAAAElFTkSuQmCC" /></a>
+                    <a target="_blank" href="https://uk.wikipedia.org/wiki/%D0%94%D0%BE%D0%BB%D0%B8%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D0%B9_%D0%BD%D0%B0%D1%83%D0%BA%D0%BE%D0%B2%D0%B8%D0%B9_%D0%BB%D1%96%D1%86%D0%B5%D0%B9_%E2%84%96_1"><img class="icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAADAklEQVRIS62WTUhUYRSGn0kDncJVBiWkzcJFulAENy6kMXDnIjEmZRCUGDcuHGLGaaEIJlZmigglgpLNWJK6U2sgENwJbswBGcN+zMWIbqYB/2aI8zU3huvcK2Znd+85533Pfc/5znctmJsNcAC3gSLgSjJ8BwgBn4BJ4KsRjMXAcRN4CtwFLpxSRAJ4D3iAb/rYdARO4CVgPQVY744BLsCf6tATeIHeMwLrwx8Cz7WXqQRS+etzgmvpDUBAHjQC0fzzP8hiVM+v5FB81wimgLr/VL0G8xa4LwQyiuHUabHZbGRmZqrASCRCTk4OVquVaDTK3t4e+fn5yre5uUlBQQEWi4Xj42M2NjZSa5TpsgnBI+Bxqqe2tpaJiQkCgQDd3d2UlJQwMzOD0+lkbm6OyclJVldX6erqwuFw0NPTg8vlYnZ2Vi9CuxAEgTt6jxBkZWVRV/dHOQFeXl6ms7OT+fl5ampqODo6wm63U15eTm9v2uH7KATbwDU9gSQKaF5eHru7u1RXVzM+Pk5zczOFhYUMDAyolNHRUTo6OtjeFpgTtiUEh8DFEyfQYiEcDjM0NMTg4KByr62tkZGRQVlZGbFYjOzsbMbGxpRMBnZoSCAJHo+HxsZGiopkDUFra6vqg0giVl9fr5o7NSVDmNYUwU/gejp3bm4uW1tbVFVVsbS0pGSRZlZUVLCysoLf76epqYmDgwMjAiVR2iZrGTJJUqVUPzw8TDweJ5FI4PP58Hq9tLW1GYHL+w9C4AN6jKIqKytZWFigr6+PxcVF9vf3CQaD9Pf3Mz09rb7ExLxCUAB8MVvL6+vraiSLi4sVVigUUrKUlpaagce1gyZB74B7RtFut5udnR11+MRaWlqUTCMjI2YEsuwatF0kZ38NuGSWcQZfFLgFqCZrJiv2zRlAzELlYIgqf9e1FiyXxbNzkriBFxpGuiuzHngFXD4jkcjyQKvcjEB8N4AnycafdunLtIgc7cAPfVFGfxVanDRf9LQnm3Y16Ygkh0J+W+Ri+W70tb8BYp/zbLNQvw4AAAAASUVORK5CYII=" /></a>
             </div>
         </div>
     </section>
@@ -109,6 +127,8 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="{% static 'dnl1/js/layout.js' %}"></script>
+
+    
     {% block jsfiles %}
     {% endblock %}
 </body>
