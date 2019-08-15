@@ -28,7 +28,10 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 .navbar .nav-item {
-  padding-left: 50px;
+  padding-right: 50px;
+}
+.navbar .nav-item:last-child {
+  padding-right: 0;
 }
 .navbar .dropdown-item {
   height: 40px;
