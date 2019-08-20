@@ -26,4 +26,5 @@ urlpatterns = [
     path('financial-statements/', views.financial_statements),
     path('schedule/', views.schedule),
     path('educational-activities/', views.educational_activities),
+    path('zno/', views.zno)
 ]

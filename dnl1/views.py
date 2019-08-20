@@ -32,6 +32,9 @@ def financial_statements(request):
 def educational_activities(request):
     return render(request, 'dnl1/educational-activities.html')
 
+def zno(request):
+    return render(request, 'dnl1/zno.html')
+
 # pages in work
 def license(request):
     return page_is_in_work(request)

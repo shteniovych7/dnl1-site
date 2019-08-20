@@ -137,43 +137,50 @@
 </section>
 
 
-<!--
-<section id="cards-section" data-aos="fade-right">
+
+<section id="cards-section" data-aos="fade-right" class="mt-5">
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-12 col-sm-6 col-md-4">
                 <div class="card" >
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="{% static 'dnl1/images/cards/info_for_pupils.jpg' %}" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <h5 class="card-title">Інформація для учнів</h5>
+                        <ul class="p-0 list-unstyled">
+                            <li><a href="#">Структура навчального року</a></li>
+                            <li><a href="#">Режим і розклад дзвінків</a></li>
+                            <li><a href="#">Бібіотека</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-12 col-sm-6 col-md-4">
                 <div class="card" >
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="{% static 'dnl1/images/cards/info_for_graduants.jpg' %}" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                      <h5 class="card-title">Інформація для випускників</h5>
+                      <ul class="p-0 list-unstyled">
+                          <li><a href="/zno">ЗНО</a></li>
+                          <li><a href="#">ДПА</a></li>
+                      </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-12 col-sm-6 col-md-4">
                 <div class="card" >
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="{% static 'dnl1/images/cards/info_for_parents.jpg' %}" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                      <h5 class="card-title">Інформація для батьків</h5>
+                      <ul class="p-0 list-unstyled">
+                            <li><a href="#">Анкета п'ятикласника</a></li>
+                            <li><a href="#">Харчування (меню, розклад)</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>-->
+</section>
 {% endblock %}
 
 {% block jsfiles %}
