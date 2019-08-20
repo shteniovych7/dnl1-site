@@ -14,6 +14,23 @@
 
 
 {% block content %}
+<style>.navbar-nav li:hover > ul.dropdown-menu {
+        display: block;
+    }
+    .dropdown-submenu {
+        position:relative;
+    }
+    .dropdown-submenu>.dropdown-menu {
+        top:0;
+        left:100%;
+        margin-top:-6px;
+    }
+    
+    /* rotate caret on hover */
+    .dropdown-menu > li > a:hover:after {
+        text-decoration: underline;
+        transform: rotate(-90deg);
+    } </style>
 <div class="owl-one owl-carousel loop owl-theme" id="welcome-slider">
     <div class="item">
         <div class="overlay">
@@ -143,7 +160,7 @@
         <div class="row">
             <div class="col-12 col-sm-6 col-md-4">
                 <div class="card" >
-                    <img src="{% static 'dnl1/images/cards/info_for_pupils.jpg' %}" class="card-img-top" alt="...">
+                    <img src="{% static 'dnl1/images/cards/info_for_pupils1.jpg' %}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Інформація для учнів</h5>
                         <ul class="p-0 list-unstyled">
@@ -156,7 +173,7 @@
             </div>
             <div class="col-12 col-sm-6 col-md-4">
                 <div class="card" >
-                    <img src="{% static 'dnl1/images/cards/info_for_graduants.jpg' %}" class="card-img-top" alt="...">
+                    <img src="{% static 'dnl1/images/cards/info_for_graduants1.jpg' %}" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Інформація для випускників</h5>
                       <ul class="p-0 list-unstyled">
@@ -168,7 +185,7 @@
             </div>
             <div class="col-12 col-sm-6 col-md-4">
                 <div class="card" >
-                    <img src="{% static 'dnl1/images/cards/info_for_parents.jpg' %}" class="card-img-top" alt="...">
+                    <img src="{% static 'dnl1/images/cards/info_for_parents1.jpg' %}" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Інформація для батьків</h5>
                       <ul class="p-0 list-unstyled">
