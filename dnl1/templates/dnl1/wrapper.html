@@ -17,7 +17,8 @@
     {% endblock %}
 </head>
 <body>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light" >
+ 
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light btco-hover-menu" >
         <div class="container">
             <a class="navbar-brand" href="/"><img src="{% static 'dnl1/images/logo.png' %}" height=35></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,6 +31,7 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
                         <li><a class="dropdown-item" href="/statut">Статут наукового ліцею</a></li>
                         <li><a class="dropdown-item" href="/license">Ліцензія</a></li>
+                        <li><a class="dropdown-item" href="/collective">Кадровий склад</a></li>
                         <li><a class="dropdown-item" href="/vacancies">Вакансії</a></li>
                         <li><a class="dropdown-item" href="/educational_programs">Освітні програми</a></li>
                         <li><a class="dropdown-item" href="/inclination">Інклюзія</a></li>
@@ -49,11 +51,11 @@
                         <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Служби</a>
                             <ul class="dropdown-menu">
                               <li><a class="dropdown-item" href="#">Медична служба</a></li>
-                              <li><a class="dropdown-item" href="#">Соціальна служба</a></li>
+                              <li><a class="dropdown-item" href="/social-service">Соціальна служба</a></li>
                               <li><a class="dropdown-item" href="#">Психологічна служба</a></li>
-                              
                             </ul>
-                          </li>
+                        </li>
+
                     </ul>
                     </li>
 

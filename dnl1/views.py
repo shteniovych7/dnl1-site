@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from photogallery.models import Topic
+import datetime
 
 def page_is_in_work(request):
     return render(request, 'dnl1/page-is-in-work.html')
@@ -34,6 +35,16 @@ def educational_activities(request):
 
 def zno(request):
     return render(request, 'dnl1/zno.html')
+
+def social_service(request):
+    return render(request, 'dnl1/social-service.html')
+
+def collective(request):
+    info = [
+        ['Математика', ['Сподар Оксана Володимирівна', 'вища, вчитель-методист', datetime.date.today().year - 1990], ['Зубрицька Лідія Тарасівна', 'вища, старший учитель', datetime.date.today().year - 1987] ],
+        ['Інформатика', ['Лаврів Ігор Дмитрович', 'вища, старший учитель', datetime.date.today().year - 1988]]
+    ]
+    return render(request, 'dnl1/collective.html', {'info' : info})
 
 # pages in work
 def license(request):
