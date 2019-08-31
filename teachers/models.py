@@ -64,7 +64,7 @@ class Teacher(models.Model):
     )
 
     first_name = models.CharField("Ім'я", max_length = 20)
-    fathers_name = models.CharField('По батькові', max_length = 20, blank = True, null = True)
+    fathers_name = models.CharField('По батькові', max_length = 20, default='1')
     second_name = models.CharField('Прізвище', max_length = 20)
     methodical_association = models.ManyToManyField(MethodicalAssociation)
     category = models.ForeignKey(Category, on_delete = models.CASCADE)
