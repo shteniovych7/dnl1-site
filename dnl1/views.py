@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from photogallery.models import Topic
+from teachers.models import Teacher
 import datetime
 
 def page_is_in_work(request):
@@ -9,7 +10,7 @@ def index(request):
     return render(request, 'dnl1/homePage.html')
 
 def about_us(request):
-    old_photos_alb = Topic.objects.filter(name = 'Старі фотографії').first()
+    old_photos_alb = Topic.objects.get(name = 'Старі фотографії')
     return render(request, 'dnl1/about-us.html', {'old_photos_alb': old_photos_alb})
 
 def contacts(request):
@@ -40,11 +41,8 @@ def social_service(request):
     return render(request, 'dnl1/social-service.html')
 
 def collective(request):
-    info = {
-        'Математика' : [ ['Сподар Оксана Володимирівна', 'вища, вчитель-методист', datetime.date.today().year - 1994], ['Зубрицька Лідія Тарасівна', 'вища, старший учитель', datetime.date.today().year - 1991] ],
-        'Інформатика' : [ ['Лаврів Ігор Дмитрович', 'вища, старший учитель', datetime.date.today().year - 1990]]
-    }
-    return render(request, 'dnl1/collective.html', {'info':info})
+    teachers = Teacher.objects.all()
+    return render(request, 'dnl1/collective.html', {'teachers':teachers})
 
 # pages in work
 def license(request):
