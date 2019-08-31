@@ -3,36 +3,56 @@ from imagekit.models import ImageSpecField, ProcessedImageField
 from imagekit.processors import ResizeToFill
 
 class Lesson(models.Model):
-    title = models.CharField(max_length = 150)
+    title = models.CharField('Назва', max_length = 150)
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'Урок'
+        verbose_name_plural = 'Уроки'
 
 class Category(models.Model):
-    title = models.CharField(max_length = 150)
+    title = models.CharField('Назва', max_length = 150)
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'Категорія'
+        verbose_name_plural = 'Категорії'
 
 class Rank(models.Model):
-    title = models.CharField(max_length = 150)
+    title = models.CharField('Назва', max_length = 150)
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'Звання'
+        verbose_name_plural = 'Звання'
 
 class SpecialPosition(models.Model):
-    title = models.CharField(max_length = 150)
+    title = models.CharField('Назва', max_length = 150)
 
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name = 'Особливий статус'
+        verbose_name_plural = 'Особливі статуси'
+
 class MethodicalAssociation(models.Model):
-    title = models.CharField(max_length = 150)
+    title = models.CharField('Назва', max_length = 150)
 
     objects = models.Manager()
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = "Методичне об'єднання"
+        verbose_name_plural = "Методичні об'єднання"
 
 
 class Teacher(models.Model):
@@ -43,8 +63,8 @@ class Teacher(models.Model):
         (DEPUTY, 'Заступник директора')
     )
 
-    first_name = models.CharField(max_length = 20)
-    second_name = models.CharField(max_length = 20)
+    first_name = models.CharField("Ім'я", max_length = 20)
+    second_name = models.CharField('Прізвище', max_length = 20)
     methodical_association = models.ManyToManyField(MethodicalAssociation)
     category = models.ForeignKey(Category, on_delete = models.CASCADE)
     rank  = models.ForeignKey(Rank, on_delete = models.CASCADE, blank = True, null = True)
@@ -64,3 +84,7 @@ class Teacher(models.Model):
 
     def __str__(self):
         return self.second_name
+
+    class Meta:
+        verbose_name = 'Вчитель'
+        verbose_name_plural = 'Вчителі'

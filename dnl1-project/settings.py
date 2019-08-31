@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'f)^u#r5n%n46sal6k%na8y$k!dd))=
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'dnl1.herokuapp.com', 'dnl1.if.ua', 'www.dnl1.if.ua']
 
@@ -41,10 +41,10 @@ STATICFILES_DIRS = [
 
 INSTALLED_APPS = [
     'dnl1',
-    'photogallery',
-    'news',
-    'teachers',
-    'achievements',
+    'photogallery.apps.PhotogalleryConfig',
+    'news.apps.NewsConfig',
+    'teachers.apps.TeachersConfig',
+    'achievements.apps.AchievementsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -126,7 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'uk-UA'
 
 TIME_ZONE = 'UTC'
 

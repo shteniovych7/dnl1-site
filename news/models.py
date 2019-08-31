@@ -5,12 +5,12 @@ from ckeditor.fields import RichTextField
 from photogallery.models import Topic
 
 class Article(models.Model):
-    title = models.CharField(max_length = 40) 
-    short_description = models.CharField(max_length = 120)
-    post = RichTextField()
-    date = models.DateField()
+    title = models.CharField('Назва', max_length = 40) 
+    short_description = models.CharField('Короткий опис', max_length = 120)
+    post = RichTextField('Опис')
+    date = models.DateField('Дата')
     album = models.ForeignKey(Topic, on_delete = models.CASCADE, blank=True, null = True)
-    image = models.ImageField(upload_to='post_image', blank=True)
+    image = models.ImageField('Фотографія', upload_to='post_image', blank=True)
     image_thumbnail = ImageSpecField(source='image', 
                                     processors=[ResizeToFill(340,180)],
                                     format='JPEG',
@@ -20,3 +20,7 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'Новина'
+        verbose_name_plural = 'Новини'

@@ -15,7 +15,7 @@ def mo(request, mo_id):
     return render(request, 'methodical-work/methodical-association.html', {'teachers' : teachers, "mo_name" : mo_name})
 
 def administration(request):
-    dr = Teacher.objects.filter(special_position = 'dr').first()
+    dr = Teacher.objects.get(special_position = 'dr')
     dp = Teacher.objects.filter(special_position = 'dp')
     
     return render(request, 'methodical-work/administration.html', {'dr': dr, 'dp': dp})
