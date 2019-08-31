@@ -64,10 +64,12 @@ class Teacher(models.Model):
     )
 
     first_name = models.CharField("Ім'я", max_length = 20)
+    fathers_name = models.CharField('По батькові', max_length = 20, blank = True, null = True)
     second_name = models.CharField('Прізвище', max_length = 20)
     methodical_association = models.ManyToManyField(MethodicalAssociation)
     category = models.ForeignKey(Category, on_delete = models.CASCADE)
     rank  = models.ForeignKey(Rank, on_delete = models.CASCADE, blank = True, null = True)
+    join_year = models.IntegerField('Рік приходу на роботу', default=1990)
     special_position = models.CharField(
         max_length=2,
         choices=ADMINISTRATION_CHOICES,
