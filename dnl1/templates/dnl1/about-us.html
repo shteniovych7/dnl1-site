@@ -18,7 +18,9 @@
         <div class="col-md-auto"><a class="btn nav-btn" role="button" href="#nowadays">Сьогодення</a></div>
         <div class="col-md-auto"><a class="btn nav-btn" role="button" href="#history" >Історія ліцею</a></div>
         <div class="col-md-auto"><a class="btn nav-btn" role="button" href="#fam-graduate">Видатні випускники</a></div>
+        {% if old_photos_alb %}
         <div class="col-md-auto"><a class="btn nav-btn" role="button" href="/photo-gallery/{{old_photos_alb.id}}">Більше фотографій</a></div>
+        {% endif %}
     </div>
 </div>
 

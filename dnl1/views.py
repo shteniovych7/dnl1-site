@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from photogallery.models import Topic
+from teachers.models import Teacher
 import datetime
 
 def page_is_in_work(request):
@@ -9,7 +10,10 @@ def index(request):
     return render(request, 'dnl1/homePage.html')
 
 def about_us(request):
-    old_photos_alb = Topic.objects.filter(name = 'Старі фотографії').first()
+    try:
+        old_photos_alb = Topic.objects.get(name = 'Старі фотографії')
+    except: 
+        old_photos_alb = False
     return render(request, 'dnl1/about-us.html', {'old_photos_alb': old_photos_alb})
 
 def contacts(request):
@@ -25,7 +29,11 @@ def inclination(request):
     return render(request, 'dnl1/inclination.html')
 
 def material_base(request):
-    return render(request, 'dnl1/material-base.html')
+    try:
+        material_alb = Topic.objects.get(name = 'Матеріальна база')
+    except: 
+        material_alb = False
+    return render(request, 'dnl1/material-base.html', {'material_alb': material_alb})
     
 def financial_statements(request):
     return render(request, 'dnl1/financial-statements.html')
@@ -40,11 +48,11 @@ def social_service(request):
     return render(request, 'dnl1/social-service.html')
 
 def collective(request):
-    info = {
-        'Математика' : [ ['Сподар Оксана Володимирівна', 'вища, вчитель-методист', datetime.date.today().year - 1994], ['Зубрицька Лідія Тарасівна', 'вища, старший учитель', datetime.date.today().year - 1991] ],
-        'Інформатика' : [ ['Лаврів Ігор Дмитрович', 'вища, старший учитель', datetime.date.today().year - 1990]]
-    }
-    return render(request, 'dnl1/collective.html', {'info':info})
+    teachers = Teacher.objects.all()
+    return render(request, 'dnl1/collective.html', {'teachers':teachers})
+
+def year_structure(request):
+    return render(request, 'dnl1/year-structure.html')
 
 # pages in work
 def license(request):
