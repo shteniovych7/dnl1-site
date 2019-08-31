@@ -9,24 +9,33 @@
     }
 }
 
-/* hover dropdown menus */
-.navbar-nav li:hover > ul.dropdown-menu {
-    display: block;
-}
-.dropdown-submenu {
-    position:relative;
-}
-.dropdown-submenu>.dropdown-menu {
-    top:0;
-    left:100%;
-    margin-top:-6px;
+.btco-hover-menu a ,  .navbar li a {
+    padding-bottom: 7px;
 }
 
-/* rotate caret on hover */
-.dropdown-menu > li > a:hover:after {
-    text-decoration: underline;
-    transform: rotate(-90deg);
-} 
+/*Drop-down menu work on hover*/
+
+@media only screen and (max-width: 991px) {
+    .btco-hover-menu .show > .dropdown-toggle::after{
+        transform: rotate(-90deg);
+    }
+}
+@media only screen and (min-width: 991px) {
+
+    .btco-hover-menu .collapse ul li{position:relative;}
+    .btco-hover-menu .collapse ul li:hover> ul{display:block}
+    .btco-hover-menu .collapse ul ul{position:absolute;top:100%;left:0;min-width:250px;display:none}
+    /*******/
+    .btco-hover-menu .collapse ul ul li{position:relative}
+    .btco-hover-menu .collapse ul ul li:hover> ul{display:block}
+    .btco-hover-menu .collapse ul ul ul{position:absolute;top:0;left:100%;min-width:250px;display:none}
+    /*******/
+    .btco-hover-menu .collapse ul ul ul li{position:relative}
+    .btco-hover-menu .collapse ul ul ul li:hover ul{display:block}
+    .btco-hover-menu .collapse ul ul ul ul{position:absolute;top:0;left:-100%;min-width:250px;display:none;z-index:1}
+
+}
+
 
 .heading {
 	display: table;
@@ -116,9 +125,6 @@ footer {
 
 @media screen and (min-width: 992px) {
 	.navbar {
-		.dropdown-menu {
-			margin-top: 10.5px;
-		}
 		.dropdown {
 			&:hover {
 				>.dropdown-menu {
