@@ -55,7 +55,7 @@
         <thead>
             <tr>
                 <th scope="col">Прізвище, ім’я</th>
-                <th scope="col">Категорія</th>
+                <th scope="col">Категорія, звання</th>
                 
             </tr>
         </thead>
@@ -63,7 +63,7 @@
             {% for teacher in teachers %}
             <tr>     
                 <td>{{teacher.second_name}} {{teacher.first_name}}</td>
-                <td>{{teacher.category}}</td>
+                <td>{{teacher.category}} {% if teacher.rank %}, teacher.rank{% endif %}</td>
             </tr>
             {% endfor %}
 

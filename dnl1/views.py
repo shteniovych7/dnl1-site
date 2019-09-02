@@ -10,7 +10,10 @@ def index(request):
     return render(request, 'dnl1/homePage.html')
 
 def about_us(request):
-    old_photos_alb = Topic.objects.get(name = 'Старі фотографії')
+    try:
+        old_photos_alb = Topic.objects.get(name = 'Старі фотографії')
+    except: 
+        old_photos_alb = False
     return render(request, 'dnl1/about-us.html', {'old_photos_alb': old_photos_alb})
 
 def contacts(request):
@@ -26,7 +29,11 @@ def inclination(request):
     return render(request, 'dnl1/inclination.html')
 
 def material_base(request):
-    return render(request, 'dnl1/material-base.html')
+    try:
+        material_alb = Topic.objects.get(name = 'Матеріальна база')
+    except: 
+        material_alb = False
+    return render(request, 'dnl1/material-base.html', {'material_alb': material_alb})
     
 def financial_statements(request):
     return render(request, 'dnl1/financial-statements.html')
@@ -43,6 +50,9 @@ def social_service(request):
 def collective(request):
     teachers = Teacher.objects.all()
     return render(request, 'dnl1/collective.html', {'teachers':teachers})
+
+def year_structure(request):
+    return render(request, 'dnl1/year-structure.html')
 
 # pages in work
 def license(request):
