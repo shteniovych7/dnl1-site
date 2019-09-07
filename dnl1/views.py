@@ -30,10 +30,11 @@ def inclination(request):
 
 def material_base(request):
     try:
-        material_alb = Topic.objects.get(name = 'Матеріальна база')
+        material_alb = Topic.objects.get(name = 'Матеріальна база')  
+        images = Topic.objects.get(name = 'Матеріальна база').photo_set.all()
     except: 
         material_alb = False
-    return render(request, 'dnl1/material-base.html', {'material_alb': material_alb})
+    return render(request, 'dnl1/material-base.html', {'material_alb': material_alb, 'images': images})
     
 def financial_statements(request):
     return render(request, 'dnl1/financial-statements.html')
@@ -46,6 +47,13 @@ def zno(request):
 
 def social_service(request):
     return render(request, 'dnl1/social-service.html')
+
+def psychological_service(request):
+    return render(request, 'dnl1/psychological-service.html')
+
+def medical_service(request):
+    return render(request, 'dnl1/medical-service.html')
+    
 
 def collective(request):
     teachers = Teacher.objects.all()
