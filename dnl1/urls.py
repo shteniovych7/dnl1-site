@@ -30,4 +30,6 @@ urlpatterns = [
     path('social-service/', views.social_service),
     path('collective/', views.collective),
     path('year-structure/', views.year_structure),
+    path('psychological-service/', views.psychological_service),
+    
 ]

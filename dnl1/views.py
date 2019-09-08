@@ -47,6 +47,9 @@ def zno(request):
 def social_service(request):
     return render(request, 'dnl1/social-service.html')
 
+def psychological_service(request):
+    return render(request, 'dnl1/psychological-service.html')
+
 def collective(request):
     teachers = Teacher.objects.all()
     return render(request, 'dnl1/collective.html', {'teachers':teachers})
