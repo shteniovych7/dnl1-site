@@ -50,6 +50,10 @@ def social_service(request):
 def psychological_service(request):
     return render(request, 'dnl1/psychological-service.html')
 
+def medical_service(request):
+    return render(request, 'dnl1/medical-service.html')
+    
+
 def collective(request):
     teachers = Teacher.objects.all()
     return render(request, 'dnl1/collective.html', {'teachers':teachers})
