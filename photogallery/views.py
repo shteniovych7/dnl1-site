@@ -26,5 +26,5 @@ def index(request):
 def topic(request, topic_id):
     topic = Topic.objects.get(id=topic_id)
     images = Topic.objects.get(id=topic_id).photo_set.all()
-
+ 
     return render(request, 'gallery/topic.html', {'topic': topic, 'images': images})
