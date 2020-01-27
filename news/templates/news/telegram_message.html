@@ -1,3 +1,4 @@
-<a href="{{ event.url }}">{{ event.title }}</a>
+<b>{{ event.title }}</b>
+<i>Дата: {{event.date|date:"d-m-Y"}}</i>
 {{event.post|safe|linebreaks}}
-<strong>Date:</strong> {{event.date|date:"d-m-Y"}}
+<a href="http://www.dnl1.if.ua/news/{{event.id}}">Читати більше на сайті</a>
