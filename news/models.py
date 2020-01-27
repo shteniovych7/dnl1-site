@@ -15,7 +15,8 @@ def post_event_on_telegram(event):
     print(message_html)
     telegram_settings = settings.TELEGRAM
     bot = telegram.Bot(token=telegram_settings['bot_token'])
-    bot.send_message(chat_id="@%s" % telegram_settings['channel_name'], text=message_html, parse_mode=telegram.ParseMode.HTML)          
+    bot.send_message(chat_id="@%s" % telegram_settings['channel_name'], text=message_html, parse_mode=telegram.ParseMode.HTML)   
+    bot.sendPhoto(chat_id="@%s" % telegram_settings['channel_name'], photo=event.image.url)       
 
 class Article(models.Model):
     title = models.CharField('Назва', max_length = 40) 
@@ -33,6 +34,7 @@ class Article(models.Model):
 
 
     def save(self, *args, **kwargs):
+        super(Article, self).save(*args, **kwargs)
         post_event_on_telegram(self)
         super(Article, self).save(*args, **kwargs)
 
