@@ -39,6 +39,11 @@ STATICFILES_DIRS = [
     os.path.join("Project", "static"),
 ]'''
 
+TELEGRAM = {
+    'bot_token': os.environ.get("BOT_TOKEN", ""),
+    'channel_name': 'dnl1_news',
+}
+
 INSTALLED_APPS = [
     'dnl1',
     'photogallery.apps.PhotogalleryConfig',
