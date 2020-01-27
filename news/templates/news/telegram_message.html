@@ -1,0 +1,9 @@
+<b>{{ event.title }}</b>
+<i>Дата: {{event.date|date:"d-m-Y"}}</i>
+
+{{event.short_description}}
+
+<a href="http://www.dnl1.if.ua/news/{{event.id}}">Читати більше на сайті</a>
+{% if event.album %}
+<a href="http://www.dnl1.if.ua/photo-gallery/{{event.album.id}}">Переглянути більше фото</a>
+{% endif %}
