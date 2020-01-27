@@ -40,7 +40,7 @@ STATICFILES_DIRS = [
 ]'''
 
 TELEGRAM = {
-    'bot_token': os.environ.get("BOT_TOKEN", ""),
+    'bot_token': '753045971:AAEwT7gB5XzSZTaTNTj-Gv4sS0BQqs8XcmQ',
     'channel_name': 'dnl1_news',
 }
 
