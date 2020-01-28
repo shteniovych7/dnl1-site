@@ -13,9 +13,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-MEDIA_URL = '/media/'
 
 
 
@@ -39,7 +37,7 @@ STATICFILES_DIRS = [
 ]'''
 
 TELEGRAM = {
-    'bot_token': os.environ.get('BOT_TOKEN', ''),
+    'bot_token': os.environ.get('BOT_TOKEN', '753045971:AAEwT7gB5XzSZTaTNTj-Gv4sS0BQqs8XcmQ'),
     'channel_name': 'dnl1_news',
 }
 
@@ -159,14 +157,17 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
-# Amazon S3 settings
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID", "") 
-AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY", "")
-AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME", "")
-AWS_QUERYSTRING_AUTH = False 
-AWS_S3_CUSTOM_DOMAIN = os.environ.get("AWS_S3_CUSTOM_DOMAIN", "")
-AWS_S3_FILE_OVERWRITE = False
 
-MEDIA_ROOT = os.environ.get("MEDIA_URL", "")
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# Amazon S3 settings
+if not DEBUG:
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID", "") 
+    AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY", "")
+    AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME", "")
+    AWS_QUERYSTRING_AUTH = False 
+    AWS_S3_CUSTOM_DOMAIN = os.environ.get("AWS_S3_CUSTOM_DOMAIN", "")
+    AWS_S3_FILE_OVERWRITE = False
+    MEDIA_ROOT = os.environ.get("MEDIA_URL", "")
