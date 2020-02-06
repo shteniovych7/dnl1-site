@@ -32,5 +32,6 @@ urlpatterns = [
     path('year-structure/', views.year_structure),
     path('psychological-service/', views.psychological_service),
     path('medical-service/', views.medical_service),
+    path('dining/', views.dining),
     
 ]

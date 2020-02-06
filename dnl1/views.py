@@ -62,6 +62,9 @@ def collective(request):
 def year_structure(request):
     return render(request, 'dnl1/year-structure.html')
 
+def dining(request):
+    return render(request, 'dnl1/dining.html')
+
 # pages in work
 def license(request):
     return page_is_in_work(request)
