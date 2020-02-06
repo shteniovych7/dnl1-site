@@ -25,7 +25,6 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'f)^u#r5n%n46sal6k%na8y$k!dd))=
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True) )
-#DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'dnl1.herokuapp.com', 'dnl1.if.ua', 'www.dnl1.if.ua']
 
@@ -36,7 +35,7 @@ STATICFILES_DIRS = [
     os.path.join("Project", "static"),
 ]'''
 
-TELEGRAM = {
+TELEGRAM =  {
     'bot_token': os.environ.get('BOT_TOKEN', '753045971:AAEwT7gB5XzSZTaTNTj-Gv4sS0BQqs8XcmQ'),
     'channel_name': 'dnl1_news',
 }
