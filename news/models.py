@@ -6,16 +6,15 @@ from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
 from ckeditor.fields import RichTextField
 from photogallery.models import Topic
+from django.conf import settings
 
 def post_event_on_telegram(event):
     message_html = render_to_string('news/telegram_message.html', {
         'event': event
     })
     message_html = message_html.replace("<p>","").replace("</p>","\n")
-    #print(message_html)
     telegram_settings = settings.TELEGRAM
     bot = telegram.Bot(token=telegram_settings['bot_token'])
-    #bot.send_message(chat_id="@%s" % telegram_settings['channel_name'], text=message_html, parse_mode=telegram.ParseMode.HTML)   
     bot.sendPhoto(chat_id="@%s" % telegram_settings['channel_name'], photo=event.image.url, caption=message_html, parse_mode=telegram.ParseMode.HTML)       
 
 class Article(models.Model):
@@ -35,8 +34,10 @@ class Article(models.Model):
 
     def save(self, *args, **kwargs):
         super(Article, self).save(*args, **kwargs)
-        post_event_on_telegram(self)
-        super(Article, self).save(*args, **kwargs)
+        
+        if not settings.DEBUG:
+            post_event_on_telegram(self)
+            super(Article, self).save(*args, **kwargs)
 
                                                                             
 

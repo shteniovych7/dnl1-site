@@ -16,7 +16,7 @@
 <div class="wrapper">
     <div class="container">
         <ul data-role="treeview">
-            <li data-caption="Методичні об'єднання">
+            <li data-caption="Предметно-методичні комісії">
                 <ul>
                     {% for mo in methodical_associations %}
                     <li><a href="methodical-associations/{{ mo.id }}">{{mo.title}}</a></li>
@@ -40,6 +40,8 @@
                     <li><a href="guidelines">2019/20</a></li>
                 </ul>
             </li>
+            <li><a href="/library">Бібліотека</a></li>
+            <li><a href="/teachers-recommendations">Улюблені книги ДЛ1</a></li>
         </ul>
     </div>
     <div class="push"></div>

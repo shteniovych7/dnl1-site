@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Medalist, AllMedalist
+from .models import Medalist, AllMedalist, ContestYear, Winner
 
 
 class MedalistInline(admin.TabularInline):
@@ -20,3 +20,19 @@ class AllMedalistAdmin(admin.ModelAdmin):
 
 
 admin.site.register(AllMedalist, AllMedalistAdmin)
+
+class WinnerInline(admin.TabularInline):
+    fieldsets = [
+        (None, {'fields': ['first_name', 'second_name', 'subject', 'class_n', 'teacher', 'place', 'stage']}),
+    ]
+    model = Winner
+    extra = 3
+
+
+class ContestYearAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None, {'fields': ['year']}),
+    ]
+    inlines = [WinnerInline]
+
+admin.site.register(ContestYear, ContestYearAdmin)

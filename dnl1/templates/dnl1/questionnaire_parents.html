@@ -1,0 +1,25 @@
+{% extends 'dnl1/wrapper.html' %}
+
+{% block title %}
+Анкетування
+{% endblock %}
+
+{% block cssfiles %}
+{% load static  %}
+<!-- links css here -->
+{% endblock %}
+
+{% block content %}
+{% include "dnl1/includes/page-title.html" with title='Анкетування' %}
+
+<div class="container">
+    <p><a href="https://forms.gle/2WWeJSLnpnmoYWjz6">Анкета "Батьки і діти"</a></p>
+    <p><a href="https://forms.gle/qiK5Ktzh2Lrxo75Q9">Анкета "Чи хороші ви батьки?"</a></p>
+    <p><a href="https://forms.gle/9SMeygEF2PNueMvg8">Анкета для батьків</a></p>
+</div>
+{% endblock %}
+
+
+{% block jsfiles %}
+<!-- links js here -->
+{% endblock %}

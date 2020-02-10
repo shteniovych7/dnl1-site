@@ -35,9 +35,6 @@ def material_base(request):
     except: 
         material_alb = False
     return render(request, 'dnl1/material-base.html', {'material_alb': material_alb, 'images': images})
-    
-def financial_statements(request):
-    return render(request, 'dnl1/financial-statements.html')
 
 def educational_activities(request):
     return render(request, 'dnl1/educational-activities.html')
@@ -65,11 +62,35 @@ def year_structure(request):
 def dining(request):
     return render(request, 'dnl1/dining.html')
 
+def library(request):
+    return render(request, 'dnl1/library.html')
+
+def circle_schedule(request):
+    return render(request, 'dnl1/circle-schedule.html')
+    
+def rings_schedule(request):
+    return render(request, 'dnl1/rings-schedule.html')
+
+def questionnaire_parents(request):
+    return render(request, 'dnl1/questionnaire_parents.html')
+    
+def questionnaire_pupils(request):
+    return render(request, 'dnl1/questionnaire_pupils.html')
+    
+def schedule(request):
+    return render(request, 'dnl1/schedule.html')
+
+def events(request):
+    return render(request, 'dnl1/events.html')
+
+def educational_system(request):
+    return render(request, 'dnl1/educational-system.html')
+
+def teachers_recs(request):
+    return render(request, 'dnl1/teachers-recommendations.html')
+
 # pages in work
 def license(request):
-    return page_is_in_work(request)
-
-def schedule(request):
     return page_is_in_work(request)
 
 
@@ -82,6 +103,13 @@ def statut(request):
     )
     return render(request, 'dnl1/google-documents-page.html', {'page_name': page_name, 'links': links})
 
+def financial_statements(request):
+    page_name = 'Фінансова звітність'
+    links = (
+        ['', 'https://drive.google.com/file/d/1ryHn4ulftKhH_BQRqOW-RZAGCrbhUtBK/preview'],
+    )
+    return render(request, 'dnl1/google-documents-page.html', {'page_name': page_name, 'links': links})
+
 def educational_programs(request):
     page_name = 'Освітні програми'
     links = (
@@ -91,6 +119,13 @@ def educational_programs(request):
         ['9аб класи', 'https://drive.google.com/file/d/1Jw4hzDhQO-jOa4RCns5fxTFurlPs3C_L/preview'],
         ['10 класи', 'https://drive.google.com/file/d/1xyRtKpBvrw9MZ0Wb3t8H1R2kzBHPv2wF/preview'],
         ['11 класи', 'https://drive.google.com/file/d/1TXHqJoIk7qd3Hxfm7xoB3dJRSocwBBvu/preview'],
+    )
+    return render(request, 'dnl1/google-documents-page.html', {'page_name': page_name, 'links': links})
+
+def books_selection(request):
+    page_name = 'Вибір підручників'
+    links = (
+        ['', 'https://drive.google.com/file/d/1yDaF2VdVRvIRq5GGn7mkxGkMiVWdArh6/preview'],
     )
     return render(request, 'dnl1/google-documents-page.html', {'page_name': page_name, 'links': links})
 

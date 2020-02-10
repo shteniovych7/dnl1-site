@@ -1,0 +1,89 @@
+{% extends 'dnl1/wrapper.html' %}
+
+{% block title %}
+Режим і розклад дзвінків
+{% endblock %}
+
+{% block cssfiles %}
+{% load static  %}
+<!-- links css here -->
+{% endblock %}
+
+{% block content %}
+{% include "dnl1/includes/page-title.html" with title='Режим і розклад дзвінків' %} 
+
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-bordered">
+              <tbody>
+                <tr>
+                    <th scope="row">1 урок</th>
+                    <td>8.00  -  8.45</td>
+                </tr>
+                <tr>
+                    <th scope="row">перерва</th>
+                    <td>8.45  -  8.55</td>
+                </tr>
+                <tr>
+                    <th scope="row">2 урок</th>
+                    <td>8.55  -  9.40</td>
+                </tr>
+                <tr>
+                    <th scope="row">перерва</th>
+                    <td>9.40  -  10.00</td>
+                </tr>
+                <tr>
+                    <th scope="row">3 урок</th>
+                    <td>10.00.  -  10.45</td>
+                </tr>
+                <tr>
+                    <th scope="row">перерва</th>
+                    <td>10.45  -  11.05</td>
+                </tr>
+                <tr>
+                    <th scope="row">4 урок</th>
+                    <td>11.05  -  11.50</td>
+                </tr>
+                <tr>
+                    <th scope="row">перерва</th>
+                    <td>11.50  -  12.00</td>
+                </tr>
+                <tr>
+                    <th scope="row">5 урок</th>
+                    <td>12.00.  -  12.45</td>
+                </tr>
+                <tr>
+                    <th scope="row">перерва</th>
+                    <td>12.45  -  12.55</td>
+                </tr>
+                <tr>
+                    <th scope="row">6 урок</th>
+                    <td>12.55.  -  13.40  </td>
+                </tr>
+                <tr>
+                    <th scope="row">перерва</th>
+                    <td>13.40  -  13.50  </td>
+                </tr>
+                <tr>
+                    <th scope="row">7 урок</th>
+                    <td>13.50.  -   14.35 </td>
+                </tr>
+                <tr>
+                    <th scope="row">перерва</th>
+                    <td>14.35 – 14.45   </td>
+                </tr>
+                <tr>
+                    <th scope="row">8 урок</th>
+                    <td>14.45  -   15.30</td>
+                </tr>
+                
+              </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block jsfiles %}
+<!-- links js here -->
+{% endblock %}

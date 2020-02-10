@@ -1,3 +1,0 @@
-RewriteEngine on
-RewriteCond %{HTTP_HOST} ^dnl1.if.ua [NC]
-RewriteRule ^(.*)$ http://www.dnl1.if.ua/$1 [L,R=301,NC]
