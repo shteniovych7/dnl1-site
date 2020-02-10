@@ -124,7 +124,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+ADMINS = [('Vasya', 'vasya7@i.ua')]
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
