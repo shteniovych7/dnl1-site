@@ -7,6 +7,7 @@ from news.models import Article
 urlpatterns = [
     path('', ListView.as_view(queryset=Article.objects.all().order_by('-date')[:6], template_name="dnl1/homePage.html")),
     path('news/', include('news.urls')),
+    path('distance_learning', include('distance_learning.urls')),
     path('methodical-work/', include('teachers.urls')),
     path('photo-gallery/', include('photogallery.urls')),
     path('about-us/', views.about_us),

@@ -36,12 +36,13 @@ STATICFILES_DIRS = [
 ]'''
 
 TELEGRAM =  {
-    'bot_token': os.environ.get('BOT_TOKEN', '753045971:AAEwT7gB5XzSZTaTNTj-Gv4sS0BQqs8XcmQ'),
+    'bot_token': os.environ.get('BOT_TOKEN', ''),
     'channel_name': 'dnl1_news',
 }
 
 INSTALLED_APPS = [
     'dnl1',
+    'distance_learning.apps.DistanceLearningConfig',
     'photogallery.apps.PhotogalleryConfig',
     'news.apps.NewsConfig',
     'teachers.apps.TeachersConfig',
