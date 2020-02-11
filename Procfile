@@ -1,2 +1,1 @@
-release: python manage.py makemigrations & python manage.py migrate
-web: run-program waitress-serve --port=$PORT settings.wsgi:application
+web: gunicorn dnl1-project.wsgi --log-file - 
