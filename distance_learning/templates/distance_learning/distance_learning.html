@@ -15,13 +15,13 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        {% for task in tasks %}
+        {% for key, task in tasks.items %}
         <div class="col-md-auto"><a class="btn nav-btn" role="button" href="#{{task.class_name}}">{{task.class_name}}</a></div>
         {% endfor %}
         
     </div>
 
-    {% for task in tasks %}
+    {% for key, task in tasks.items %}
         <div id="{{task.class_name}}">
             <h3>{{task.class_name}}</h3>
             {{task.task|safe|linebreaks}}
@@ -33,4 +33,5 @@
 
 
 {% block jsfiles %}
+<script src="{% static '/dnl1/js/scroll.js' %}"></script>
 {% endblock %}
