@@ -65,6 +65,9 @@ def year_structure(request):
 def dining(request):
     return render(request, 'dnl1/dining.html')
 
+def library(request):
+    return render(request, 'dnl1/library.html')
+
 # pages in work
 def license(request):
     return page_is_in_work(request)

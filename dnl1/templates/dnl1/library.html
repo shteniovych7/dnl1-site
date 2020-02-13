@@ -1,0 +1,109 @@
+{% extends 'dnl1/wrapper.html' %}
+
+{% block title %}
+Бібліотека
+{% endblock %}
+
+{% block cssfiles %}
+{% load static  %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous" />
+{% endblock %}
+
+{% block content %}
+
+{% include "dnl1/includes/page-title.html" with title='Бібліотека' %}
+
+<div class="container">
+    <p class="text-center">Бібліотеки – це скарбниці всіх багатств людського духу.</p>
+    <p class="text-center">Ґотфрід Вільгельм Лейбніц</p>
+        
+
+    <h3 class="text-center font-weight-bold">ГРАФІК РОБОТИ БІБЛІОТЕКИ</h3>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                  <th scope="col">День тижня</th>
+                  <th scope="col">Час роботи</th>
+                  <th scope="col">Перерва</th>
+                  <th scope="col">Примітки</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Понеділок</td>
+                  <td>8.00 - 16.45</td>
+                  <td>12.00 - 12.45</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Вівторок</td>
+                  <td>8.00 - 16.45</td>
+                  <td>12.00 - 12.45</td>
+                  <td></td>
+                </tr>
+                <tr>
+                    <td>Середа</td>
+                    <td>8.00 - 16.45</td>
+                    <td>12.00 - 12.45</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Четвер</td>
+                    <td>8.00 - 16.45</td>
+                    <td>12.00 - 12.45</td>
+                    <td>останній четвер місяця - санітарний день</td>
+                  </tr>
+                  <tr>
+                    <td>П'ятниця</td>
+                    <td>8.00 - 16.45</td>
+                    <td>12.00 - 12.45</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Субота, неділя</td>
+                    <td>вихідний</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+              </tbody>
+        </table>
+    </div>
+
+    <h5 class="text-center">ПРАВИЛА КОРИСТУВАННЯ БІБЛІОТЕКОЮ Долинського наукового ліцею №1</h5>
+    <p>Користування бібліотекою безкоштовне.</p>
+    <p>Право користуватись мають учителі, учні, інші співробітники ліцею.</p>
+    <p>Читачі мають право:</p>
+    <ul>
+        <li>одержувати в тимчасове користування книжки з фонду бібліотеки;</li>
+        <li>користуватись довідково-бібліографічним апаратом;</li>
+        <li>брати участь в бібліотечних заходах;</li>
+        <li>користуватися Інтернетом та навчальними дисками.</li>
+    </ul>
+    <p>Книги видаються на 15 днів.</p>
+    <p>Не видаються з бібліотеки:</p>
+    <ul>
+        <li>рідкі та цінні видання,</li>
+        <li>довідкова література,</li>
+        <li>останній примірник видання.</li>
+    </ul>
+    <p>Читачі зобов’язані:</p>
+    <ul>
+        <li>бережливо поводитися з книжками;</li>
+        <li>проявляти постійну турботу про їх зберігання;</li>
+        <li>не робити в них ніяких поміток, підкреслень;</li>
+        <li>не виривати і не загинати сторінок;</li>
+        <li>повертати книги у призначений термін.</li>
+    </ul>	
+    <p>Читачі, які загубили, або зіпсували книгу, зобов’язані замінити її такою ж, або іншою науково-популярною (художньою) книгою.</p>
+    <p>Учні зобов’язані бережливо поводитись з підручниками і нести за них відповідальність.</p>
+    <p>Якщо підручник загублено, або зіпсовано учнем, замість нього може бути повернена рівноцінна навчальна література.</p>
+    
+</div>
+
+{% endblock %}
+
+
+{% block jsfiles %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+{% endblock %}
