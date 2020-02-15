@@ -51,8 +51,8 @@ class MethodicalAssociation(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = "Методичне об'єднання"
-        verbose_name_plural = "Методичні об'єднання"
+        verbose_name = "Предметно-навчальна комісія"
+        verbose_name_plural = "Предметно-навчальна комісії"
 
 
 class Teacher(models.Model):

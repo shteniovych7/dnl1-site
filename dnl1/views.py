@@ -97,6 +97,13 @@ def educational_programs(request):
     )
     return render(request, 'dnl1/google-documents-page.html', {'page_name': page_name, 'links': links})
 
+def books_selection(request):
+    page_name = 'Вибір підручників'
+    links = (
+        ['', 'https://drive.google.com/file/d/1yDaF2VdVRvIRq5GGn7mkxGkMiVWdArh6/preview'],
+    )
+    return render(request, 'dnl1/google-documents-page.html', {'page_name': page_name, 'links': links})
+
 def work_plan(request):
     page_name = 'Річний план ліцею'
     links = (

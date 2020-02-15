@@ -36,7 +36,7 @@ def pedagogical_certification(request):
     page_name = 'Перспективний план атестації педагогів'
     links = (
         ['Графік атестації педагогічних працівників Долинського наукового ліцею №1', 'https://drive.google.com/file/d/1HZ3VZHH7jz8fgmNZoTEYXSeAgG_JdkWT/preview'],
-        ['Список педагогічних працівників Долинського наукового ліцею №1, які підлягають черговій атестації у 2019 році', 'https://drive.google.com/file/d/1GQD431of0bds0TQv1aaCpJlFj9eNxM5S/preview'],
+        ['Список педагогічних працівників Долинського наукового ліцею №1, які підлягають черговій атестації', 'https://drive.google.com/file/d/1GQD431of0bds0TQv1aaCpJlFj9eNxM5S/preview'],
         ['Протокол засідання атестаційної комісії І рівня Долинського наукового ліцею №1', 'https://drive.google.com/file/d/1kBFSRAVu2LV97NkZOUf6SMbGEMCKVitu/preview'],
     )
     return render(request, 'dnl1/google-documents-page.html', {'page_name': page_name, 'links': links})
