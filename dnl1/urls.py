@@ -36,5 +36,9 @@ urlpatterns = [
     path('dining/', views.dining),
     path('library/', views.library),
     path('books-selection/', views.books_selection),
+    path('circle-schedule/', views.circle_schedule),
+    path('rings-schedule/', views.rings_schedule),
+    path('questionnaire_parents/', views.questionnaire_parents),
+    path('questionnaire_pupils/', views.questionnaire_pupils),
     
 ]

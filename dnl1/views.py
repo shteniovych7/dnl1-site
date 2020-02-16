@@ -68,6 +68,18 @@ def dining(request):
 def library(request):
     return render(request, 'dnl1/library.html')
 
+def circle_schedule(request):
+    return render(request, 'dnl1/circle-schedule.html')
+    
+def rings_schedule(request):
+    return render(request, 'dnl1/rings-schedule.html')
+
+def questionnaire_parents(request):
+    return render(request, 'dnl1/questionnaire_parents.html')
+    
+def questionnaire_pupils(request):
+    return render(request, 'dnl1/questionnaire_pupils.html')
+    
 # pages in work
 def license(request):
     return page_is_in_work(request)
