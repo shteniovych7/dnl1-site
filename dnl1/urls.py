@@ -40,5 +40,6 @@ urlpatterns = [
     path('rings-schedule/', views.rings_schedule),
     path('questionnaire_parents/', views.questionnaire_parents),
     path('questionnaire_pupils/', views.questionnaire_pupils),
+    path('events/', views.events),
     
 ]

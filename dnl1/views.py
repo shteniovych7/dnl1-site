@@ -83,6 +83,9 @@ def questionnaire_pupils(request):
 def schedule(request):
     return render(request, 'dnl1/schedule.html')
 
+def events(request):
+    return render(request, 'dnl1/events.html')
+
 # pages in work
 def license(request):
     return page_is_in_work(request)
