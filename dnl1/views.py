@@ -80,11 +80,11 @@ def questionnaire_parents(request):
 def questionnaire_pupils(request):
     return render(request, 'dnl1/questionnaire_pupils.html')
     
+def schedule(request):
+    return render(request, 'dnl1/schedule.html')
+
 # pages in work
 def license(request):
-    return page_is_in_work(request)
-
-def schedule(request):
     return page_is_in_work(request)
 
 
