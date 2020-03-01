@@ -35,9 +35,6 @@ def material_base(request):
     except: 
         material_alb = False
     return render(request, 'dnl1/material-base.html', {'material_alb': material_alb, 'images': images})
-    
-def financial_statements(request):
-    return render(request, 'dnl1/financial-statements.html')
 
 def educational_activities(request):
     return render(request, 'dnl1/educational-activities.html')
@@ -97,6 +94,13 @@ def statut(request):
     links = (
         ['', 'https://drive.google.com/file/d/1chSGn1oFPE2DPbz62Pkpp8FmLkKXC1lj/preview'],
         ['', 'https://drive.google.com/file/d/1TI5VSDabTLNVGB6ThjvO3haXNGAbfCrJ/preview']
+    )
+    return render(request, 'dnl1/google-documents-page.html', {'page_name': page_name, 'links': links})
+
+def financial_statements(request):
+    page_name = 'Фінансова звітність'
+    links = (
+        ['', 'https://drive.google.com/file/d/1ryHn4ulftKhH_BQRqOW-RZAGCrbhUtBK/preview'],
     )
     return render(request, 'dnl1/google-documents-page.html', {'page_name': page_name, 'links': links})
 
