@@ -1,9 +1,8 @@
 from django.db import models
-from ckeditor.fields import RichTextField
 
 class Task(models.Model):
     class_name = models.CharField('Клас', max_length = 40) 
-    task = RichTextField('Завдання')
+    link = models.CharField('Посилання', max_length = 140, null=True) 
 
     objects = models.Manager()                               
 
@@ -11,5 +10,5 @@ class Task(models.Model):
         return self.class_name
 
     class Meta:
-        verbose_name = 'Завдання'
-        verbose_name_plural = 'Завдання'
+        verbose_name = 'Завдання для дистанційного вивчення'
+        verbose_name_plural = 'Завдання для дистанційного вивчення'

@@ -7,6 +7,14 @@
 {% block cssfiles %}
 {% load static  %}
 <link rel="stylesheet" href="{% static '/dnl1/css/about-us.css' %}">
+<style>
+    .nav-btn{
+        width: 100%;
+    text-align: left;
+    padding: 10px;
+    margin: 10px 0;
+    }
+</style>
 {% endblock %}
 
 {% block content %}
@@ -14,19 +22,13 @@
 {% include "dnl1/includes/page-title.html" with title='Дистанційне навчання' %}
 
 <div class="container">
-    <div class="row justify-content-center">
-        {% for task, key in tasks.items %}
-        <div class="col-md-auto"><a class="btn nav-btn" role="button" href="#{{task.class_name}}">{{task.class_name}}</a></div>
+    <div class="row">
+        {% for task in tasks %}
+            <div class="col-4">
+                <a class="btn nav-btn" role="button" href="{{task.link}}">{{task.class_name}} клас</a>
+            </div>
         {% endfor %}
-        
     </div>
-
-    {% for task, key in tasks.items %}
-        <div id="{{task.class_name}}">
-            <h3>{{task.class_name}}</h3>
-            {{task.task|safe|linebreaks}}
-        </div>
-    {% endfor %}
 </div>
 
 {% endblock %}
