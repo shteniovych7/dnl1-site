@@ -83,6 +83,9 @@ def schedule(request):
 def events(request):
     return render(request, 'dnl1/events.html')
 
+def educational_system(request):
+    return render(request, 'dnl1/educational-system.html')
+
 # pages in work
 def license(request):
     return page_is_in_work(request)

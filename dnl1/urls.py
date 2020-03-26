@@ -41,5 +41,6 @@ urlpatterns = [
     path('questionnaire_parents/', views.questionnaire_parents),
     path('questionnaire_pupils/', views.questionnaire_pupils),
     path('events/', views.events),
+    path('educational-system/', views.educational_system),
     
 ]
