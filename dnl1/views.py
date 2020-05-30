@@ -86,6 +86,9 @@ def events(request):
 def educational_system(request):
     return render(request, 'dnl1/educational-system.html')
 
+def teachers_recs(request):
+    return render(request, 'dnl1/teachers-recommendations.html')
+
 # pages in work
 def license(request):
     return page_is_in_work(request)
