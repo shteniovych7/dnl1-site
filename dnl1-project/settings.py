@@ -21,9 +21,10 @@ STATICFILES_DIRS = [
     os.path.join("Project", "static"),
 ]'''
 
-TELEGRAM =  {
-    'bot_token': os.environ.get('BOT_TOKEN', ''),
-    'channel_name': 'dnl1_news',
+TELEGRAM = {
+    'bot_token': os.environ.get('BOT_TOKEN', '753045971:AAEwT7gB5XzSZTaTNTj-Gv4sS0BQqs8XcmQ'),
+    #'channel_name': 'dnl1_news',
+    'channel_name': 'testchan11111'
 }
 
 INSTALLED_APPS = [
@@ -32,6 +33,7 @@ INSTALLED_APPS = [
     'photogallery.apps.PhotogalleryConfig',
     'news.apps.NewsConfig',
     'teachers.apps.TeachersConfig',
+    'schedule.apps.ScheduleConfig',
     'achievements.apps.AchievementsConfig',
     'django.contrib.admin',
     'django.contrib.auth',

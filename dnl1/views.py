@@ -76,9 +76,6 @@ def questionnaire_parents(request):
     
 def questionnaire_pupils(request):
     return render(request, 'dnl1/questionnaire_pupils.html')
-    
-def schedule(request):
-    return render(request, 'dnl1/schedule.html')
 
 def events(request):
     return render(request, 'dnl1/events.html')

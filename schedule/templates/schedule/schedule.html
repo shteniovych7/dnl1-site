@@ -1,0 +1,139 @@
+{% extends 'dnl1/wrapper.html' %}
+
+{% block title %}
+Розклад
+{% endblock %}
+
+{% block cssfiles %}
+{% load static  %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous" />
+<link rel="stylesheet" href="{% static 'bootstrap-select/bootstrap-select.css' %}">
+<link rel="stylesheet" href="{% static 'schedule/css/schedule.css' %}">
+{% endblock %}
+
+{% block content %}
+{% include "dnl1/includes/page-title.html" with title='Розклад ' %}
+<!--
+<div class="container">
+    <div class="row">
+        <div class="col-4"><a data-fancybox="gallery" href="{% static 'dnl1/images/schedule/1.jpg' %}"><img class="mw-100 mb-3" src="{% static 'dnl1/images/schedule/1.jpg' %}"></a></div>
+        <div class="col-4"><a data-fancybox="gallery" href="{% static 'dnl1/images/schedule/2.jpg' %}"><img class="mw-100 mb-3" src="{% static 'dnl1/images/schedule/2.jpg' %}"></a></div>
+        <div class="col-4"><a data-fancybox="gallery" href="{% static 'dnl1/images/schedule/3.jpg' %}"><img class="mw-100 mb-3" src="{% static 'dnl1/images/schedule/3.jpg' %}"></a></div>
+    </div>
+</div>
+-->
+
+<div class="container">
+	<form method="get" action="/schedule/">
+	{% csrf_token %}
+		<div class="row align-items-center">
+			<div class="col-md-auto">
+				<select name="type" id="type" class="selectpicker">
+					{% if schedule_type == "teachers_schedule" %}
+						<option value="students_schedule">Учні</option>
+						<option value="teachers_schedule" selected="selected">Вчителі</option>
+					{% else %}
+						<option value="students_schedule" selected="selected">Учні</option>
+						<option value="teachers_schedule">Вчителі</option>
+					{% endif %}
+
+				</select>
+				<span id="classes">
+					<select name="class" data-live-search="true" class="selectpicker">
+					{% for class in all_classes %}
+						{% if  class_to_show_id|add:"0" == class.id %}
+							<option value="{{class.id}}" selected="selected">{{class}}</option>
+						{% else %}
+							<option value="{{class.id}}" >{{class}}</option>
+						{% endif %}
+					{% endfor %}
+					</select>
+				</span>
+				<span id="teachers">
+					<select name="teacher" data-live-search="true" class="selectpicker">
+						{% for teacher in all_teachers %}
+							{% if  teacher_to_show_id|add:"0" == teacher.id %}
+								<option value="{{teacher.id}}" selected="selected">{{teacher}}</option>
+							{% else %}
+								<option value="{{teacher.id}}" >{{teacher}}</option>
+							{% endif %}
+						{% endfor %}
+					</select>
+				</span>
+
+				<input type="submit" value="Обрати">
+
+			</div>
+		</div>
+	</form>
+</div>
+
+
+{% if schedule_type %}
+{% load index %}
+
+<div class="container table-responsive">
+		<table class="table table-bordered table-bg ">
+		  <thead>
+		    <tr class="table-headings">
+		      <th colspan="2" scope="col">#</th>
+		      <th colspan="2" scope="col">Понеділок</th>
+		      <th colspan="2" scope="col">Вівторок</th>
+		      <th colspan="2" scope="col">Середа</th>
+		      <th colspan="2" scope="col">Четвер</th>
+		      <th colspan="2" scope="col">П'ятниця</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  {% for i in range%}
+		    <tr>
+		      <th colspan="2" scope="row" class="table-headings">{{i}}</th>
+				{% for day in class_schedule %}
+				<td colspan="2">
+					{% for less in class_schedule|index:forloop.counter0 %} <!-- loop to find lesson with current index -->
+
+						{% if less.index|add:"0" == i %}
+							{% if schedule_type == "teachers_schedule" %}
+							<div class="font-weight-bold"> {{ less.class_consisting }} - {{ less }}</div>
+							{% else %}
+							<div class="font-weight-bold"> {{ less }}</div>
+							<div class="font-italic">{{ less.lesson_teacher }}</div>
+							{% endif %}
+						{% endif %}
+
+					{% endfor %}
+
+					<!-- Other implementation of this algorithm
+					{% if forloop.parentloop.counter0 < class_schedule|index:forloop.counter0|length %}
+						{% with less=class_schedule|index:forloop.counter0|index:forloop.parentloop.counter0 %}
+						<div class="font-weight-bold"> {{ less }}</div>
+						<div class="font-italic">{{ less.lesson_teacher }}</div>
+						{% endwith %}
+					{% endif %}
+					-->
+				</td>
+				{% endfor %}
+		    </tr>
+			{% endfor %}
+		  </tbody>
+		</table>
+	</div>
+
+{% endif %}
+{% endblock %}
+
+
+{% block jsfiles %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="{% static 'bootstrap-select/bootstrap-select.js' %}"></script>
+<script src="{% static 'schedule/js/schedule.js' %}"></script>
+<script>
+$(document).ready(function () {
+	{% if schedule_type == "teachers_schedule" %}
+    	$("#classes").hide();
+    {% else %}
+   		$("#teachers").hide();
+   	{%endif%}
+});
+</script>
+{% endblock %}
