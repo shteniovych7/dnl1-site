@@ -7,7 +7,7 @@ def methodical_work(request):
     return render(request, 'methodical-work/methodical-work.html', {'methodical_associations' : methodical_associations})
 
 def mo(request, mo_id):
-    methodical_association = MethodicalAssociation.objects.filter(id = mo_id)[0]
+    methodical_association = MethodicalAssociation.objects.get(id = mo_id)
     mo_name = methodical_association.title
     teachers = Teacher.objects.filter(methodical_association__id = mo_id)
 

@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'photogallery.apps.PhotogalleryConfig',
     'news.apps.NewsConfig',
     'teachers.apps.TeachersConfig',
+    'schedule.apps.ScheduleConfig',
     'achievements.apps.AchievementsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
