@@ -93,8 +93,12 @@
 					{% for less in class_schedule|index:forloop.counter0 %} <!-- loop to find lesson with current index -->
 
 						{% if less.index|add:"0" == i %}
+							{% if schedule_type == "teachers_schedule" %}
+							<div class="font-weight-bold"> {{ less.class_consisting }} - {{ less }}</div>
+							{% else %}
 							<div class="font-weight-bold"> {{ less }}</div>
 							<div class="font-italic">{{ less.lesson_teacher }}</div>
+							{% endif %}
 						{% endif %}
 
 					{% endfor %}
