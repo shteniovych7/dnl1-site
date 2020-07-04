@@ -4,21 +4,18 @@
 .table thead th {
   border-bottom-color: #91b3b5;
 }
-.table .table-headings {
+.dropdowns-pre-text {
+  font-size: 30px;
+}
+.table-headings {
   background-color: #acc8cc;
 }
-.table .table-bg {
+.table-bg {
   background-color: #d4e3e6;
 }
-.table .table-bordered td {
+.table-bordered td {
   border: 1px solid #91b3b5;
 }
-.table .table-bordered th {
+.table-bordered th {
   border: 1px solid #91b3b5;
-}
-.table .lesson {
-  font-weight: bold;
-}
-.table .teacher {
-  font-style: italic;
 }

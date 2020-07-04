@@ -24,30 +24,53 @@
 -->
 
 <div class="container">
+	<form method="get" action="/schedule/">
+	{% csrf_token %}
 		<div class="row align-items-center">
-			<div class="col-md-auto dropdowns-pre-text">Клас</div>
 			<div class="col-md-auto">
-				<form method="get" action="/schedule/">
-					{% csrf_token %}
-					<select name="class" id="type" class="selectpicker">
-						{% for class in all_classes %}
-							{% if  class_to_show_id|add:"0" == class.id %}
-								<option value="{{class.id}}" selected="selected">{{class}}</option>
+				<select name="type" id="type" class="selectpicker">
+					{% if schedule_type == "teachers_schedule" %}
+						<option value="students_schedule">Учні</option>
+						<option value="teachers_schedule" selected="selected">Вчителі</option>
+					{% else %}
+						<option value="students_schedule" selected="selected">Учні</option>
+						<option value="teachers_schedule">Вчителі</option>
+					{% endif %}
+
+				</select>
+				<span id="classes">
+					<select name="class" class="selectpicker">
+					{% for class in all_classes %}
+						{% if  class_to_show_id|add:"0" == class.id %}
+							<option value="{{class.id}}" selected="selected">{{class}}</option>
+						{% else %}
+							<option value="{{class.id}}" >{{class}}</option>
+						{% endif %}
+					{% endfor %}
+					</select>
+				</span>
+				<span id="teachers">
+					<select name="teacher" class="selectpicker">
+						{% for teacher in all_teachers %}
+							{% if  teacher_to_show_id|add:"0" == teacher.id %}
+								<option value="{{teacher.id}}" selected="selected">{{teacher}}</option>
 							{% else %}
-								<option value="{{class.id}}" >{{class}}</option>
-							{%endif %}
+								<option value="{{teacher.id}}" >{{teacher}}</option>
+							{% endif %}
 						{% endfor %}
 					</select>
+				</span>
+
 				<input type="submit" value="Обрати">
-				</form>
+
 			</div>
 		</div>
-	</div>
+	</form>
+</div>
 
 
-{% if class_schedule %}
+{% if schedule_type %}
 {% load index %}
-{% load correctindex %}
 
 <div class="container table-responsive">
 		<table class="table table-bordered table-bg ">
@@ -67,12 +90,23 @@
 		      <th scope="row" class="table-headings">{{i}}</th>
 				{% for day in class_schedule %}
 				<td>
-					{% if class_schedule|index:forloop.counter0|correctindex:forloop.parentloop.counter0 %}
+					{% for less in class_schedule|index:forloop.counter0 %} <!-- loop to find lesson with current index -->
+
+						{% if less.index|add:"0" == i %}
+							<div class="font-weight-bold"> {{ less }}</div>
+							<div class="font-italic">{{ less.lesson_teacher }}</div>
+						{% endif %}
+
+					{% endfor %}
+
+					<!-- Other implementation of this algorithm
+					{% if forloop.parentloop.counter0 < class_schedule|index:forloop.counter0|length %}
 						{% with less=class_schedule|index:forloop.counter0|index:forloop.parentloop.counter0 %}
-						<div class="lesson"> {{ less }}</div>
-						<div class="techer">{{ less.lesson_teacher }}</div>
+						<div class="font-weight-bold"> {{ less }}</div>
+						<div class="font-italic">{{ less.lesson_teacher }}</div>
 						{% endwith %}
 					{% endif %}
+					-->
 				</td>
 				{% endfor %}
 		    </tr>
@@ -88,4 +122,14 @@
 {% block jsfiles %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
 <script src="{% static 'lib/bootstrap-select/bootstrap-select.js' %}"></script>
+<script src="{% static 'schedule/js/schedule.js' %}"></script>
+<script>
+$(document).ready(function () {
+	{% if schedule_type == "students_schedule" %}
+    	$("#teachers").hide();
+    {% else %}
+   		$("#classes").hide();
+   	{%endif%}
+});
+</script>
 {% endblock %}
