@@ -125,10 +125,10 @@
 <script src="{% static 'schedule/js/schedule.js' %}"></script>
 <script>
 $(document).ready(function () {
-	{% if schedule_type == "students_schedule" %}
-    	$("#teachers").hide();
+	{% if schedule_type == "teachers_schedule" %}
+    	$("#classes").hide();
     {% else %}
-   		$("#classes").hide();
+   		$("#teachers").hide();
    	{%endif%}
 });
 </script>
