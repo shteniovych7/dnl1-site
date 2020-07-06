@@ -1,3 +1,9 @@
+input {
+  padding: 4px 25px;
+  margin-left: 5px;
+  background: #ebeff1;
+  border-radius: 7px;
+}
 .btn-light {
   background-color: white;
   border: 1px solid #ced4da;
