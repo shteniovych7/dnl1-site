@@ -39,7 +39,7 @@
 
 				</select>
 				<span id="classes">
-					<select name="class" class="selectpicker">
+					<select name="class" data-live-search="true" class="selectpicker">
 					{% for class in all_classes %}
 						{% if  class_to_show_id|add:"0" == class.id %}
 							<option value="{{class.id}}" selected="selected">{{class}}</option>
@@ -50,7 +50,7 @@
 					</select>
 				</span>
 				<span id="teachers">
-					<select name="teacher" class="selectpicker">
+					<select name="teacher" data-live-search="true" class="selectpicker">
 						{% for teacher in all_teachers %}
 							{% if  teacher_to_show_id|add:"0" == teacher.id %}
 								<option value="{{teacher.id}}" selected="selected">{{teacher}}</option>
