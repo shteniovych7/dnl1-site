@@ -33,23 +33,41 @@ class ClassLesson(models.Model):
         ('6', '6'),
         ('7', '7'),
     )
+    SUBGROUPS = (
+        ('1', '1'),
+        ('2', '2'),
+    )
+    SPECWEEKS = (
+        ('Nu', 'Чисельник'),
+        ('De', 'Знаменник'),
+    )
     day = models.CharField(
         'День',
         max_length=2,
         choices=WEEKDAYS,
-        blank=True,
-        null=True
     )
     index = models.CharField(
         'Номер уроку',
         max_length=1,
         choices=LESSONINDEXES,
-        blank=True,
-        null=True
     )
     title = models.ForeignKey(LessonList, on_delete=models.CASCADE)
     class_consisting = models.ForeignKey(ClassSchedule, on_delete=models.CASCADE)
     lesson_teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
 
+    subgroup = models.CharField(
+        'Підгрупа',
+        max_length=1,
+        choices=SUBGROUPS,
+        blank=True,
+        null=True
+    )
+    spec_week = models.CharField(
+        'Тиждень',
+        max_length=2,
+        choices=SPECWEEKS,
+        blank=True,
+        null=True
+    )
     def __str__(self):
         return self.title.title

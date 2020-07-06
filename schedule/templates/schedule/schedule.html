@@ -76,20 +76,20 @@
 		<table class="table table-bordered table-bg ">
 		  <thead>
 		    <tr class="table-headings">
-		      <th scope="col">#</th>
-		      <th scope="col">Понеділок</th>
-		      <th scope="col">Вівторок</th>
-		      <th scope="col">Середа</th>
-		      <th scope="col">Четвер</th>
-		      <th scope="col">П'ятниця</th>
+		      <th colspan="2" scope="col">#</th>
+		      <th colspan="2" scope="col">Понеділок</th>
+		      <th colspan="2" scope="col">Вівторок</th>
+		      <th colspan="2" scope="col">Середа</th>
+		      <th colspan="2" scope="col">Четвер</th>
+		      <th colspan="2" scope="col">П'ятниця</th>
 		    </tr>
 		  </thead>
 		  <tbody>
 		  {% for i in range%}
 		    <tr>
-		      <th scope="row" class="table-headings">{{i}}</th>
+		      <th colspan="2" scope="row" class="table-headings">{{i}}</th>
 				{% for day in class_schedule %}
-				<td>
+				<td colspan="2">
 					{% for less in class_schedule|index:forloop.counter0 %} <!-- loop to find lesson with current index -->
 
 						{% if less.index|add:"0" == i %}
