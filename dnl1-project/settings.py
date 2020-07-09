@@ -21,7 +21,7 @@ STATICFILES_DIRS = [
     os.path.join("Project", "static"),
 ]'''
 
-TELEGRAM =  {
+TELEGRAM = {
     'bot_token': os.environ.get('BOT_TOKEN', ''),
     'channel_name': 'dnl1_news',
 }

@@ -18,8 +18,8 @@ class ArticlesAdmin(admin.ModelAdmin):
                 message_html = message_html.replace("<p>", "").replace("</p>", "\n")
                 telegram_settings = settings.TELEGRAM
                 bot = telegram.Bot(token=telegram_settings['bot_token'])
-                bot.sendPhoto(chat_id="@%s" % telegram_settings['channel_name'], photo=news.image.url, caption=message_html,
-                              parse_mode=telegram.ParseMode.HTML)
+                bot.sendPhoto(chat_id="@%s" % telegram_settings['channel_name'], photo=news.image.url,
+                              caption=message_html, parse_mode=telegram.ParseMode.HTML)
             self.message_user(request, "Бот відправив повідомлення")
         else:
             self.message_user(request, "Відправляти можна тільки в production!")
