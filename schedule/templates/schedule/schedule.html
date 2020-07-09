@@ -68,7 +68,7 @@
 	</form>
 </div>
 
-
+<!--
 {% if schedule_type %}
 {% load index %}
 
@@ -90,7 +90,7 @@
 		      <th colspan="2" scope="row" class="table-headings">{{i}}</th>
 				{% for day in class_schedule %}
 				<td colspan="2">
-					{% for less in class_schedule|index:forloop.counter0 %} <!-- loop to find lesson with current index -->
+					{% for less in class_schedule|index:forloop.counter0 %}
 
 						{% if less.index|add:"0" == i %}
 							{% if schedule_type == "teachers_schedule" %}
@@ -103,14 +103,6 @@
 
 					{% endfor %}
 
-					<!-- Other implementation of this algorithm
-					{% if forloop.parentloop.counter0 < class_schedule|index:forloop.counter0|length %}
-						{% with less=class_schedule|index:forloop.counter0|index:forloop.parentloop.counter0 %}
-						<div class="font-weight-bold"> {{ less }}</div>
-						<div class="font-italic">{{ less.lesson_teacher }}</div>
-						{% endwith %}
-					{% endif %}
-					-->
 				</td>
 				{% endfor %}
 		    </tr>
@@ -119,6 +111,79 @@
 		</table>
 	</div>
 
+{% endif %}
+-->
+{% if schedule_type %}
+{% load index %}
+{% load filter_lessons %}
+{% load filter_lessons_by_subgroup %}
+{% load filter_lessons_by_specweek %}
+<div class="container table-responsive">
+	<table class="table table-bordered table-bg ">
+		<colgroup>
+		   <col span="1" style="width: 10%;">
+		   <col span="1" style="width: 45%;">
+		   <col span="1" style="width: 45%;">
+		</colgroup>
+
+
+
+
+	  <tbody>
+	  {% for day in weekdays %}
+	  <tr class="table-headings">
+		  <th colspan="3" scope="col" class="text-center">{{day.1}}</th>
+	  </tr>
+	  {% for i in range %}
+	  {% with daylessons=class_schedule|index:forloop.parentloop.counter0 %}
+		  {% with this_lesson=daylessons|filter_lessons:i  %}
+	  		{% if this_lesson %}
+	  			{% if this_lesson.0.spec_week %}
+					<tr>
+						<!-- Чисельник -->
+						<th rowspan="2" scope="row" class="table-headings align-middle">{{i}}</th>
+						{% with this_lesson_this_week=this_lesson|filter_lessons_by_specweek:"Nu" %}
+							{% if this_lesson_this_week.0.subgroup %}
+								{% include 'schedule/lesson_view.html' with schedule_type=schedule_type less=this_lesson_this_week|filter_lessons_by_subgroup:"1" colspan=1 %}
+								{% include 'schedule/lesson_view.html' with schedule_type=schedule_type less=this_lesson_this_week|filter_lessons_by_subgroup:"2" colspan=1 %}
+							{% else %}
+								{% include 'schedule/lesson_view.html' with schedule_type=schedule_type less=this_lesson_this_week.0 colspan=2 %}
+							{% endif %}
+						{% endwith %}
+					</tr>
+					<tr>
+						<!-- Знаменник -->
+						{% with this_lesson_this_week=this_lesson|filter_lessons_by_specweek:"De" %}
+							{% if this_lesson_this_week.0.subgroup %}
+								{% include 'schedule/lesson_view.html' with schedule_type=schedule_type less=this_lesson_this_week|filter_lessons_by_subgroup:"1" colspan=1 %}
+								{% include 'schedule/lesson_view.html' with schedule_type=schedule_type less=this_lesson_this_week|filter_lessons_by_subgroup:"2" colspan=1 %}
+							{% else %}
+								{% include 'schedule/lesson_view.html' with schedule_type=schedule_type less=this_lesson_this_week.0 colspan=2 %}
+							{% endif %}
+						{% endwith %}
+					</tr>
+	  			{% else %}
+					<tr>
+					  <th scope="row" class="table-headings align-middle">{{i}}</th>
+						{% if this_lesson.0.subgroup %}
+							{% include 'schedule/lesson_view.html' with schedule_type=schedule_type less=this_lesson|filter_lessons_by_subgroup:"1" colspan=1 %}
+							{% include 'schedule/lesson_view.html' with schedule_type=schedule_type less=this_lesson|filter_lessons_by_subgroup:"2" colspan=1 %}
+						{% else %}
+							{% include 'schedule/lesson_view.html' with schedule_type=schedule_type less=this_lesson.0 colspan=2 %}
+						{% endif %}
+				  </tr>
+	  			{% endif %}
+	   		{% else %} <!-- This lesson do not exist -->
+	  		<tr><th scope="row" class="table-headings align-middle">{{i}}</th><td colspan="2" ></td></tr>
+	  		{% endif %}
+		  {% endwith %}
+	  {% endwith  %}
+	  {% endfor %}
+
+	  {% endfor %}
+	  </tbody>
+	</table>
+</div>
 {% endif %}
 {% endblock %}
 

@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from .models import ClassSchedule, WEEKDAYS
+
 from teachers.models import Teacher
+
+from .models import ClassSchedule, WEEKDAYS
 
 
 def schedule(request):
@@ -32,5 +34,6 @@ def schedule(request):
         'teacher_to_show_id': teacher_to_show_id,
         'class_schedule': class_schedule,
         'range': range(1, 9),
+        'weekdays': WEEKDAYS,
     }
     return render(request, 'schedule/schedule.html', args)
