@@ -2,6 +2,5 @@ from django import template
 register = template.Library()
 
 @register.filter
-def index(indexable, i):
-    return indexable[i]
-
+def filter_lessons(lessons, i):
+    return lessons.filter(index=i)

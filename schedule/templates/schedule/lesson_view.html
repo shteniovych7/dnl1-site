@@ -1,0 +1,16 @@
+{% if less %}
+
+{% if schedule_type == "teachers_schedule" %}
+    <td colspan="{{ colspan }}">
+        <div class="font-weight-bold"> {{ less.class_consisting }} - {{ less }}</div>
+    </td>
+    {% else %}
+    <td colspan="{{ colspan }}">
+        <div class="font-weight-bold"> {{ less }}</div>
+        <div class="font-italic">{{ less.lesson_teacher }}</div>
+    </td>
+{% endif %}
+
+{% else %}
+<td colspan="{{ colspan }}"></td>
+{% endif %}
