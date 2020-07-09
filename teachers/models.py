@@ -2,8 +2,9 @@ from django.db import models
 from imagekit.models import ImageSpecField, ProcessedImageField
 from imagekit.processors import ResizeToFill
 
+
 class Lesson(models.Model):
-    title = models.CharField('Назва', max_length = 150)
+    title = models.CharField('Назва', max_length=150)
 
     def __str__(self):
         return self.title
@@ -12,8 +13,9 @@ class Lesson(models.Model):
         verbose_name = 'Урок'
         verbose_name_plural = 'Уроки'
 
+
 class Category(models.Model):
-    title = models.CharField('Назва', max_length = 150)
+    title = models.CharField('Назва', max_length=150)
 
     def __str__(self):
         return self.title
@@ -22,8 +24,9 @@ class Category(models.Model):
         verbose_name = 'Категорія'
         verbose_name_plural = 'Категорії'
 
+
 class Rank(models.Model):
-    title = models.CharField('Назва', max_length = 150)
+    title = models.CharField('Назва', max_length=150)
 
     def __str__(self):
         return self.title
@@ -32,8 +35,9 @@ class Rank(models.Model):
         verbose_name = 'Звання'
         verbose_name_plural = 'Звання'
 
+
 class SpecialPosition(models.Model):
-    title = models.CharField('Назва', max_length = 150)
+    title = models.CharField('Назва', max_length=150)
 
     def __str__(self):
         return self.title
@@ -41,6 +45,7 @@ class SpecialPosition(models.Model):
     class Meta:
         verbose_name = 'Особливий статус'
         verbose_name_plural = 'Особливі статуси'
+
 
 class MethodicalAssociation(models.Model):
     title = models.CharField('Назва', max_length = 150)
