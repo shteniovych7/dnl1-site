@@ -10,6 +10,7 @@ urlpatterns = [
     path('distance_learning', include('distance_learning.urls')),
     path('methodical-work/', include('teachers.urls')),
     path('photo-gallery/', include('photogallery.urls')),
+    path('api/', include('api.urls')),
     path('about-us/', views.about_us),
     path('contacts/', views.contacts),
     path('achievements/', include('achievements.urls')),

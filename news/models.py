@@ -19,14 +19,6 @@ class Article(models.Model):
 
     objects = models.Manager()
 
-
-    #def save(self, *args, **kwargs):
-    #    super(Article, self).save(*args, **kwargs)
-    #    
-    #    if not settings.DEBUG:
-    #        post_event_on_telegram(self)
-    #        super(Article, self).save(*args, **kwargs)
-
     def __str__(self):
         return self.title
 

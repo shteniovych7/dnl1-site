@@ -15,6 +15,7 @@ class ClassSchedule(models.Model):
         verbose_name = 'Розклад класу'
         verbose_name_plural = 'Розклади класів'
 
+
 WEEKDAYS = (
         ('Mo', 'Понеділок'),
         ('Tu', 'Вівторок'),
@@ -22,6 +23,8 @@ WEEKDAYS = (
         ('Th', 'Четвер'),
         ('Fr', 'П\'ятниця'),
     )
+
+
 class ClassLesson(models.Model):
 
     LESSONINDEXES = (
@@ -52,8 +55,8 @@ class ClassLesson(models.Model):
         choices=LESSONINDEXES,
     )
     title = models.ForeignKey(LessonList, on_delete=models.CASCADE)
-    class_consisting = models.ForeignKey(ClassSchedule, on_delete=models.CASCADE)
-    lesson_teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+    class_consisting = models.ForeignKey(ClassSchedule, on_delete=models.CASCADE, related_name="lessons")
+    lesson_teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name="teacher_lessons")
 
     subgroup = models.CharField(
         'Підгрупа',
