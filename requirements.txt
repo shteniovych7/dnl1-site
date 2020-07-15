@@ -19,6 +19,7 @@ django-static-precompiler==1.8.2
 django-storages==1.7.1
 djangorestframework==3.11.0
 docutils==0.14
+drf-yasg==1.17.1
 easy-thumbnails==2.6
 geojson==2.4.1
 gunicorn==19.9.0
