@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'storages',
     'boto3',
     'rest_framework',
+    'drf_yasg'
 ]
 from easy_thumbnails.conf import Settings as thumbnail_settings
 THUMBNAIL_PROCESSORS = (

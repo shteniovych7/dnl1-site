@@ -8,7 +8,7 @@ from teachers.models import Teacher
 
 class NewsListView(APIView):
     def get(self, request):
-        news = Article.objects.all()
+        news = Article.objects.all().order_by('-date')
         serializer = NewsListSerializer(news, many=True)
         return Response(serializer.data)
 

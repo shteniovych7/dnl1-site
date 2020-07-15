@@ -114,7 +114,7 @@ footer .footer-nav_menu a {
 footer .footer-nav_menu a:hover {
   color: white;
 }
-footer .footer-nav_menu #title {
+footer .footer-nav_menu .title {
   color: #cccece;
   font-weight: 500;
   margin-bottom: 10px;
