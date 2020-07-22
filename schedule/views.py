@@ -16,14 +16,14 @@ def schedule(request):
         class_to_show = ClassSchedule.objects.get(id=class_to_show_id)
 
         class_schedule = [
-            class_to_show.classlesson_set.filter(day=x[0]) for x in WEEKDAYS
+            class_to_show.lessons.filter(day=x[0]) for x in WEEKDAYS
         ]
     elif schedule_type == 'teachers_schedule':
         teacher_to_show_id = request.GET.get('teacher')
         teacher_to_show = Teacher.objects.get(id=teacher_to_show_id)
 
         class_schedule = [
-            teacher_to_show.classlesson_set.filter(day=x[0]) for x in WEEKDAYS
+            teacher_to_show.teacher_lessons.filter(day=x[0]) for x in WEEKDAYS
         ]
 
     args = {
