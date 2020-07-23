@@ -42,7 +42,6 @@ def schedule(request):
     day = request.GET.get('day', '')
     if day:
         temp = 'schedule/mobile_view.html'
-        week = [x[0] for x in WEEKDAYS ]
-        args['day_index'] = week.index(day)
+        args['day_index'] = int(day)
 
     return render(request, temp, args)
