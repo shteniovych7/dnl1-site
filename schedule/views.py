@@ -6,7 +6,7 @@ from .models import ClassSchedule, WEEKDAYS
 
 
 def schedule(request):
-    classes = ClassSchedule.objects.all()
+    classes = ClassSchedule.objects.in_class_growing_order()
     teachers = Teacher.objects.all()
     class_to_show_id = teacher_to_show_id = class_schedule = None
 
@@ -36,4 +36,12 @@ def schedule(request):
         'range': range(1, 9),
         'weekdays': WEEKDAYS,
     }
-    return render(request, 'schedule/schedule.html', args)
+
+    temp = 'schedule/schedule.html'
+
+    day = request.GET.get('day', '')
+    if day:
+        temp = 'schedule/mobile_view.html'
+        args['day_index'] = int(day)
+
+    return render(request, temp, args)

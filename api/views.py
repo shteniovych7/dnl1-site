@@ -22,7 +22,7 @@ class NewsDetailView(APIView):
 
 class ScheduleListView(APIView):
     def get(self, request):
-        lessons = ClassSchedule.objects.all()
+        lessons = ClassSchedule.objects.in_class_growing_order()
         serializer = ClassScheduleListSerializer(lessons, many=True)
         return Response(serializer.data)
 

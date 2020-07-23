@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FF</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+{% if schedule_type %}
+{% load index %}
+{% load filter_lessons %}
+{% load filter_lessons_by_subgroup %}
+{% load filter_lessons_by_specweek %}
+
+
+<div class="container table-responsive mt-4">
+	<table class="table table-bordered table-bg ">
+		<colgroup>
+		   <col span="1" style="width: 10%;">
+		   <col span="1" style="width: 45%;">
+		   <col span="1" style="width: 45%;">
+		</colgroup>
+
+	  <tbody>
+
+	  {% for i in range %}
+	  {% with daylessons=class_schedule|index:day_index %}
+		  {% with this_lesson=daylessons|filter_lessons:i  %}
+	  		{% if this_lesson %}
+	  			{% if this_lesson.0.spec_week %}
+					<tr>
+						<!-- Чисельник -->
+						<th rowspan="2" scope="row" class="table-headings align-middle">{{i}}</th>
+						{% with this_lesson_this_week=this_lesson|filter_lessons_by_specweek:"Nu" %}
+							{% if this_lesson_this_week.0.subgroup %}
+								{% include 'schedule/lesson_view.html' with schedule_type=schedule_type less=this_lesson_this_week|filter_lessons_by_subgroup:"1" colspan=1 %}
+								{% include 'schedule/lesson_view.html' with schedule_type=schedule_type less=this_lesson_this_week|filter_lessons_by_subgroup:"2" colspan=1 %}
+							{% else %}
+								{% include 'schedule/lesson_view.html' with schedule_type=schedule_type less=this_lesson_this_week.0 colspan=2 %}
+							{% endif %}
+						{% endwith %}
+					</tr>
+					<tr>
+						<!-- Знаменник -->
+						{% with this_lesson_this_week=this_lesson|filter_lessons_by_specweek:"De" %}
+							{% if this_lesson_this_week.0.subgroup %}
+								{% include 'schedule/lesson_view.html' with schedule_type=schedule_type less=this_lesson_this_week|filter_lessons_by_subgroup:"1" colspan=1 %}
+								{% include 'schedule/lesson_view.html' with schedule_type=schedule_type less=this_lesson_this_week|filter_lessons_by_subgroup:"2" colspan=1 %}
+							{% else %}
+								{% include 'schedule/lesson_view.html' with schedule_type=schedule_type less=this_lesson_this_week.0 colspan=2 %}
+							{% endif %}
+						{% endwith %}
+					</tr>
+	  			{% else %}
+					<tr>
+					  <th scope="row" class="table-headings align-middle">{{i}}</th>
+						{% if this_lesson.0.subgroup %}
+							{% include 'schedule/lesson_view.html' with schedule_type=schedule_type less=this_lesson|filter_lessons_by_subgroup:"1" colspan=1 %}
+							{% include 'schedule/lesson_view.html' with schedule_type=schedule_type less=this_lesson|filter_lessons_by_subgroup:"2" colspan=1 %}
+						{% else %}
+							{% include 'schedule/lesson_view.html' with schedule_type=schedule_type less=this_lesson.0 colspan=2 %}
+						{% endif %}
+				  </tr>
+	  			{% endif %}
+	   		{% else %} <!-- This lesson do not exist -->
+	  		<tr><th scope="row" class="table-headings align-middle">{{i}}</th><td colspan="2" ></td></tr>
+	  		{% endif %}
+		  {% endwith %}
+	  {% endwith  %}
+	  {% endfor %}
+
+	  </tbody>
+	</table>
+</div>
+{% endif %}
+
+</body>
+</html>

@@ -12,6 +12,7 @@ class Lesson(models.Model):
     class Meta:
         verbose_name = 'Урок'
         verbose_name_plural = 'Уроки'
+        ordering = ['title']
 
 
 class Category(models.Model):
@@ -68,7 +69,7 @@ class Teacher(models.Model):
         (DEPUTY, 'Заступник директора')
     )
 
-    first_name = models.CharField("Ім'я", max_length = 20)
+    first_name = models.CharField("Ім'я", max_length=20)
     fathers_name = models.CharField('По батькові', max_length = 20, default='1')
     second_name = models.CharField('Прізвище', max_length = 20)
     methodical_association = models.ManyToManyField(MethodicalAssociation)
