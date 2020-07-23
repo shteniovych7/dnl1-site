@@ -36,4 +36,13 @@ def schedule(request):
         'range': range(1, 9),
         'weekdays': WEEKDAYS,
     }
-    return render(request, 'schedule/schedule.html', args)
+
+    temp = 'schedule/schedule.html'
+
+    day = request.GET.get('day', '')
+    if day:
+        temp = 'schedule/mobile_view.html'
+        week = [x[0] for x in WEEKDAYS ]
+        args['day_index'] = week.index(day)
+
+    return render(request, temp, args)
