@@ -6,7 +6,7 @@ from .models import ClassSchedule, WEEKDAYS
 
 
 def schedule(request):
-    classes = ClassSchedule.objects.all()
+    classes = ClassSchedule.objects.in_class_growing_order()
     teachers = Teacher.objects.all()
     class_to_show_id = teacher_to_show_id = class_schedule = None
 

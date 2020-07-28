@@ -2,11 +2,15 @@ from django.db import models
 from teachers.models import Lesson as LessonList, Teacher
 import datetime
 
+class ClassScheduleManager(models.Manager):
+    def in_class_growing_order(self, *args, **kwargs):
+        qs = self.get_queryset().filter(*args, **kwargs)
+        return sorted(qs, key=lambda n: (int(n.class_title.split('-')[0]), n.class_title.split('-')[1]))
 
 class ClassSchedule(models.Model):
     class_title = models.CharField('Клас', max_length=5)
 
-    objects = models.Manager()
+    objects = ClassScheduleManager()
 
     def __str__(self):
         return self.class_title
