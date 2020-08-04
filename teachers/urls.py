@@ -8,7 +8,7 @@ urlpatterns = [
     path('methodical-associations/<int:mo_id>/', views.mo),
     path('administration', views.administration),
     path('legal-framework', views.legal_framework),
-    path('pedagogics-perspective-plan', views.pedagogics_perspective_plan),
+    # path('pedagogics-perspective-plan', views.pedagogics_perspective_plan),
     path('pedagogical-certification', views.pedagogical_certification),
-    path('guidelines', views.guidelines),
+    #path('guidelines', views.guidelines),
 ] 

@@ -143,6 +143,7 @@ def pedagogical_meetings(request):
 def orders(request):
     page_name = 'Накази'
     links = (
+        ['', 'https://drive.google.com/file/d/11Wjxj_cZJyIMoTxayvYeGZwfRmIB05JP/preview'],
         ['', 'https://drive.google.com/file/d/1tA3sUfts9Xi9YW-wrIfUoeYRtBgOqB3i/preview'],
     )
     return render(request, 'dnl1/google-documents-page.html', {'page_name': page_name, 'links': links})
