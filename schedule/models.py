@@ -39,6 +39,7 @@ class ClassLesson(models.Model):
         ('5', '5'),
         ('6', '6'),
         ('7', '7'),
+        ('8', '8'),
     )
     SUBGROUPS = (
         ('1', '1'),
