@@ -20,13 +20,13 @@
                 <div class="title">Золоті медалісти</div>
                 <ul class="nav nav-pills">
                     {% for med_year in medalists %}
-                    <li class="nav-item"><a class="nav-link gold-btn" data-toggle="pill" href="#menu{{med_year.id}}">{{med_year}}</a></li>
+                    <li class="nav-item"><a class="nav-link gold-btn {% if forloop.first %} active{% endif %}" data-toggle="pill" href="#menu{{med_year.id}}">{{med_year}}</a></li>
                     {% endfor %}
                 </ul>
                     
                 <div class="tab-content">
                     {% for med_year in medalists %}
-                    <div id="menu{{med_year.id}}" class="tab-pane fade">
+                    <div id="menu{{med_year.id}}" class="tab-pane fade{% if forloop.first %}show active{% endif %}">
                         <p>
                         {% for med in med_year.medalist_set.all %}
                             {% if med.medalist_type == 'gl' %}
@@ -42,13 +42,13 @@
                     <div class="title">Срібні медалісти</div>
                     <ul class="nav nav-pills">
                         {% for med_year in medalists %}
-                        <li class="nav-item"><a class="nav-link silver-btn" data-toggle="pill" href="#menu{{med_year.id|add:size }}">{{med_year}}</a></li>
+                        <li class="nav-item"><a class="nav-link silver-btn{% if forloop.first %} active{% endif %}" data-toggle="pill" href="#menu{{med_year.id|add:size }}">{{med_year}}</a></li>
                         {% endfor %}
                     </ul>
                         
                     <div class="tab-content">
                         {% for med_year in medalists %}
-                        <div id="menu{{med_year.id|add:size}}" class="tab-pane fade">
+                        <div id="menu{{med_year.id|add:size}}" class="tab-pane fade{% if forloop.first %} show active{% endif %}">
                             <p>
                             {% for med in med_year.medalist_set.all %}
                                 {% if med.medalist_type == 'sl' %}
@@ -70,12 +70,12 @@
         <div class="title" id="subjects">Переможці Всеукраїнських учнівських олімпіад з базових дисциплін та МАН</div>
         <ul class="nav nav-pills">
             {% for year in contest_winners_by_years %}
-                <li class="nav-item"><a class="nav-link gold-btn" data-toggle="pill" href="#contestyear{{year.id}}">{{year}}</a></li>
+                <li class="nav-item"><a class="nav-link gold-btn {% if forloop.first %} active{% endif %}" data-toggle="pill" href="#contestyear{{year.id}}">{{year}}</a></li>
             {% endfor %}
         </ul>
 
         {% for year in contest_winners_by_years %}
-        <div id="contestyear{{year.id}}" class="tab-pane fade">
+        <div id="contestyear{{year.id}}" class="tab-pane fade {% if forloop.first %}show active{% endif %}">
             <ul class="nav tabs">
                 <li class="nav-item">
                     <a class="nav-link active text-dark" data-toggle="tab" href="#dis{{year.id}}">II (районний) етап</a>

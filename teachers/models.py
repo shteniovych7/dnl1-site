@@ -97,3 +97,41 @@ class Teacher(models.Model):
         verbose_name = 'Вчитель'
         verbose_name_plural = 'Вчителі'
         ordering = ['second_name']
+
+
+class CourseRetraining(models.Model):
+    year = models.IntegerField('Рік')
+
+    objects = models.Manager()
+
+    def __str__(self):
+        return str(self.year)
+
+    class Meta:
+        verbose_name = 'Курсова перепідготовка '
+        verbose_name_plural = 'Курсова перепідготовка'
+        ordering = ['-year']
+
+
+class CourseRetrainingTeacher(models.Model):
+    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+    year = models.ForeignKey(CourseRetraining, on_delete=models.CASCADE)
+    start_time = models.DateField('Дата початку курсу')
+    end_time = models.DateField('Дата завершення курсу')
+    course_code = models.CharField("Код курсу", max_length=20)
+    variant = models.CharField("Назва варіанту", max_length=20)
+    course_name = models.CharField("Назва курсу", max_length=255)
+    certificate_number = models.CharField("Номер сертифіката", max_length=255,  blank = True, null = True)
+
+
+    def get_name(self):
+        return self.teacher
+
+
+    def __str__(self):
+        return self.teacher.__str__()
+
+    class Meta:
+        verbose_name = 'Вчитель курсової перепідготовки'
+        verbose_name_plural = 'Вчителі курсової перепідготовки'
+

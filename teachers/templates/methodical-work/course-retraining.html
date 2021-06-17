@@ -1,0 +1,80 @@
+{% extends 'dnl1/wrapper.html' %}
+
+{% block title %}
+План курсової перепідготовки
+{% endblock %}
+
+{% block cssfiles %}
+{% load static  %}
+<link rel="stylesheet" href="{% static '/methodical-work/css/teachers.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% include "dnl1/includes/page-title.html" with title='План курсової перепідготовки' %}
+
+
+
+    <div class="container mb-5">
+        <ul class="nav nav-pills" id="pills-tab">
+            {% for year in course_retraining_by_years %}
+                <li class="nav-item"><a class="nav-link gold-btn {% if forloop.first %} active{% endif %}" data-toggle="pill" href="#year{{year.id}}">{{year}}</a></li>
+            {% endfor %}
+        </ul>
+
+        <div class="tab-content" id="pills-tabContent">
+        {% for year in course_retraining_by_years %}
+        <div id="year{{year.id}}" class="tab-pane fade {% if forloop.first %}show active{% endif %}" role="tabpanel" >
+
+            <div class="mt-5">
+                <div class="container">
+                    <table class="table table-bordered table-responsive d-md-table">
+                       <thead>
+                          <tr>
+                             <th>ПІБ</td>
+                             <th>Дата початку курсу</td>
+                             <th>Дата завершення курсу</td>
+                             <th>Код курсу</td>
+                             <th>Назва варіанту</td>
+                             <th>Назва курсу</td>
+                             <th>Номер сертифіката</td>
+                          </tr>
+                       </thead>
+                       <tbody>
+                           {% for teacher in year.courseretrainingteacher_set.all %}
+                           <tr>
+                                <td>{{teacher.teacher.first_name}} {{teacher.teacher.fathers_name}} {{teacher.teacher.second_name}}</td>
+                                <td>{{teacher.start_time}}</td>
+                                <td>{{teacher.end_time}}</td>
+                                <td>{{teacher.course_code}}</td>
+                                <td>{{teacher.variant}}</td>
+                                <td>{{teacher.course_name}}</td>
+                                <td>{% if teacher.certificate_number %}
+                                    {{teacher.certificate_number}}
+                                {% endif %}
+                                </td>
+                            </tr>
+                           {% endfor %}
+                       </tbody>
+                    </table>
+                 </div>
+            </div>
+        </div>
+
+        {% endfor %}
+        </div>
+
+
+
+        <!-- Tab panes -->
+
+    </div>
+
+
+
+{% endblock %}
+
+
+{% block jsfiles %}
+<script src="{% static '/methodical-work/js/treeview.js' %}"></script>
+{% endblock %}

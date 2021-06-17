@@ -10,5 +10,6 @@ urlpatterns = [
     path('legal-framework', views.legal_framework),
     # path('pedagogics-perspective-plan', views.pedagogics_perspective_plan),
     path('pedagogical-certification', views.pedagogical_certification),
+    path('course-retraining', views.course_retraining),
     #path('guidelines', views.guidelines),
 ] 

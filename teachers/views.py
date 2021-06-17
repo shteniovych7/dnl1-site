@@ -1,10 +1,15 @@
 from django.shortcuts import render
-from teachers.models import MethodicalAssociation, Teacher
+from teachers.models import MethodicalAssociation, Teacher, CourseRetraining
 
 def methodical_work(request):
     methodical_associations = MethodicalAssociation.objects.all()
 
     return render(request, 'methodical-work/methodical-work.html', {'methodical_associations' : methodical_associations})
+
+def course_retraining(request):
+    course_retraining_by_years = CourseRetraining.objects.all()
+
+    return render(request, 'methodical-work/course-retraining.html', {'course_retraining_by_years' : course_retraining_by_years})
 
 def mo(request, mo_id):
     methodical_association = MethodicalAssociation.objects.get(id = mo_id)
